@@ -6,8 +6,7 @@
   "subdomain": "revealjs",
   "main": "js/reveal.js",
   "scripts": {
-    "test": "grunt test",
-    "start": "grunt serve"
+    "start": "beefy index.js:bundle.js --live --open"
   },
   "author": {
     "name": "Hakim El Hattab",
@@ -25,7 +24,8 @@
     "express": "~4.13.3",
     "grunt-cli": "~0.1.13",
     "mustache": "~2.2.1",
-    "socket.io": "~1.3.7"
+    "socket.io": "~1.3.7",
+    "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
