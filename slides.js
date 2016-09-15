@@ -15,7 +15,7 @@ function root(){
       # MetaMask
       ### connecting browsers to blockchains
     `),
-    
+
     //
     // METAMASK TODAY
     //
@@ -33,7 +33,7 @@ function root(){
         '( thanks infura! )'
       ]),
     ]),
-    
+
     slide([
       `browsers - a few`,
       slide(`chrome - live!`),
@@ -49,7 +49,7 @@ function root(){
       slide(`etherisc - flight insurance`),
       slide(`blockparty - party-RSVP-commit`),
     ]),
-    
+
     //
     // HOW IT WORKS
     //
@@ -64,32 +64,125 @@ function root(){
       markdownSlide(`a note on filters + load balancers`),
     ]),
 
-    //
+    // Dan Presents
     // CHALLENGES
     //
 
-    markdownSlide(`# Challenges`),
-    slide([
-      slide(`What is it like building an Ethereum browser from outside of the foundation?`),
-      slide(`We get a lot of developers coming to us for help.`),
-    ]),
-    slide([
-      slide(`No definitive rpc spec.`),
-      slide(`We really could use a web3 standards body.`),
-      slide(`Block lookups are by number not hash`),
-    ]),
-    
+markdownSlide(`# LESSONS
+## From Developers
+                with @danfinlay`),
+
+markdownSlide(`## What is it like building an Ethereum browser from outside of the foundation?
+- We get to see a lot of awesome Dapps being made!
+- We get to see a lot of Dapp developer problems first hand.
+`),
+
+slide([
+`Web3: The Gateway to the Ethereum Web`,
+img('images/beingjohn.jpg')
+]),
+
+// Basic API limitations
+markdownSlide(`## Fork Intolerance
+- Block lookups are by number not hash.
+- No way to notify that a previous \`latest\` block is now an uncle.
+- This means no web3-backed UI can be very certain of recent information. (duh!)
+`),
+
+markdownSlide(`## Callbacks and Promises Assume Singular Truth
+Now:
+\`\`\`
+myCoin.sendCoin(receiver, amount, {from: account})
+.then(function() {
+  // Must have totally happened!
+  renderWithHubris()
+})
+\`\`\`
+`),
+
+markdownSlide(`## Representing Uncertainty in a UI With Event Emitters
+Why not:
+\`\`\`
+myCoin.sendCoin(receiver, amount, {from: account})
+.on('data', function(data, meta) {
+  // We now have meta.confirmations of confidence!
+  // Maybe we're on meta.blockHash!
+})
+\`\`\`
+`),
+
+markdownSlide(`## Decentralized Twitter
+\`\`\`
+// Load all tweets of all time.
+TwitterContract.getTweets.call({ from: account })
+.then((tweets) => {
+  var tweetsIFollow = tweets
+                      .filter( byFollowed )
+                      .sort( byDate )
+                      .slice(0, 50)  // Just the latest 50
+
+  render( tweetsIFollow )
+})
+\`\`\`
+`),
+
+markdownSlide(
+`
+## Possible Solution:
+### Sorting logic on contract
+- Faster queries
+- Costs gas to construct.
+- Inflexible, centralized display logic.
+- Still returns all results in one batch.`
+),
+
+slide([
+  `Possible solution`,
+  img('images/eip144.png'),
+]),
+
+markdownSlide(`
+## Common Issue
+"Why isn't MetaMask acting like Geth?"
+- Geth vs. the Wiki: No Authoritative Spec
+- The standards are largely de facto
+  - If the wiki is wrong, check Geth for the truth.
+`),
+
+markdownSlide(`
+### How about a web3 standards body?
+- What's a decentralized standards body look like?
+  - Definitive proposal list (currently EIPs)
+  - Poll of support (weighted by Ether?)
+  - Declared implementation by client maintainers.
+`),
+
+slide([
+  'MDN: Some Inspiration',
+  img('images/mdn.png'),
+]),
+
+
+
+
 
     //
     // FUTURE
     //
-
     markdownSlide(`# Future`),
     slide(`Multiple Key-Ring types, e.g. uPort`),
     slide(`libp2p for webRTC p2p stuff`),
     slide(`Mascara iFrame library with gif walkthrough`),
-
   ])
+}
+
+function markdown(text) {
+  return h('script', {
+    'data-markdown': '',
+    'attributes': {
+      'type': 'text/template'
+    }
+  }, text)
 }
 
 function markdownSlide(text){
