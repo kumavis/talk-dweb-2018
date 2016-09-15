@@ -6,7 +6,8 @@
   "subdomain": "revealjs",
   "main": "js/reveal.js",
   "scripts": {
-    "start": "beefy index.js:bundle.js --live --open"
+    "start": "beefy index.js:bundle.js --live --open",
+    "build": "browserify -e index.js -o bundle.js"
   },
   "author": {
     "name": "Hakim El Hattab",
