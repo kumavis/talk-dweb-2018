@@ -72,9 +72,9 @@ markdownSlide(`# LESSONS
 ## From Developers
                 with @danfinlay`),
 
-markdownSlide(`## What is it like building an Ethereum browser from outside of the foundation?
-- We get to see a lot of awesome Dapps being made!
-- We get to see a lot of Dapp developer problems first hand.
+markdownSlide(`### What's it like building a 3rd party Ethereum browser?
+- We see cool Dapps being made!
+- We handle developer problems!
 `),
 
 slide([
