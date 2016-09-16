@@ -83,11 +83,14 @@ img('images/beingjohn.jpg')
 ]),
 
 // Basic API limitations
+//
+/*
 markdownSlide(`## Fork Intolerance
 - Block lookups are by number not hash.
 - No way to notify that a previous \`latest\` block is now an uncle.
 - Hard to represent blockchain uncertainty.
 `),
+*/
 
 markdownSlide(`## Callbacks & Promises Return Singular Truth
 \`\`\`
@@ -98,8 +101,7 @@ myCoin.sendCoin(receiver, amount, {from: account})
 })
 \`\`\`
 ![](images/han.gif)
-`
-             ),
+`),
 
 markdownSlide(`## Representing Uncertainty With Event Emitters
 Why not:
@@ -115,10 +117,12 @@ myCoin.sendCoin(receiver, amount, {from: account})
 ![](images/infinite-improbability.gif)
 `),
 
-markdownSlide(`## Decentralized Twitter
+markdownSlide(`
+### Querying Contracts is Not DB-like
+### Consider Decentralized Twitter
 \`\`\`
-// Load all tweets of all time.
 TwitterContract.getTweets.call({ from: account })
+// Load all tweets of all time into local memory.
 .then((tweets) => {
   var tweetsIFollow = tweets
                       .filter( byFollowed )
@@ -143,6 +147,24 @@ markdownSlide(`## Possible solution: EIP 144
 - Would allow client to submit compiled EVM code to server.
 - Allows dynamic, client-specified queries of blockchain data.
 `),
+
+/*
+markdownSlide(`
+### Devs using Logs as Database
+
+Pros:
+  - Low gas costs!
+
+Cons:
+  - Not in state, so not available to contracts.
+  - No cryptoeconomic incentive to store.
+  - No dynamic query syntax, only topics (like tags).
+
+Solution:
+  - Archival nodes as a service?
+  - Build new incentives.
+`),
+*/
 
 markdownSlide(`
 ## Common Issue
