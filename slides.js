@@ -64,9 +64,9 @@ function root(){
       markdownSlide(`a note on filters + load balancers`),
     ]),
 
-    // Dan Presents
-    // CHALLENGES
-    //
+// Dan Presents
+// CHALLENGES
+//
 
 markdownSlide(`# LESSONS
 ## From Developers
@@ -78,7 +78,7 @@ markdownSlide(`## What is it like building an Ethereum browser from outside of t
 `),
 
 slide([
-`Web3: The Gateway to the Ethereum Web`,
+`Web3: Portal & Bottleneck`,
 img('images/beingjohn.jpg')
 ]),
 
@@ -86,29 +86,33 @@ img('images/beingjohn.jpg')
 markdownSlide(`## Fork Intolerance
 - Block lookups are by number not hash.
 - No way to notify that a previous \`latest\` block is now an uncle.
-- This means no web3-backed UI can be very certain of recent information. (duh!)
+- Hard to represent blockchain uncertainty.
 `),
 
-markdownSlide(`## Callbacks and Promises Assume Singular Truth
-Now:
+markdownSlide(`## Callbacks & Promises Return Singular Truth
 \`\`\`
 myCoin.sendCoin(receiver, amount, {from: account})
 .then(function() {
-  // Must have totally happened!
-  renderWithHubris()
+  // Must have happened!
+  hubris()
 })
 \`\`\`
-`),
+![](images/han.gif)
+`
+             ),
 
-markdownSlide(`## Representing Uncertainty in a UI With Event Emitters
+markdownSlide(`## Representing Uncertainty With Event Emitters
 Why not:
 \`\`\`
 myCoin.sendCoin(receiver, amount, {from: account})
-.on('data', function(data, meta) {
-  // We now have meta.confirmations of confidence!
-  // Maybe we're on meta.blockHash!
+.on('received', coinSent)
+.on('confirmation', (data) => {
+  // Maybe we have data.confirmations
+  // or a reference to data.blockHash
+  // so we can render current probability.
 })
 \`\`\`
+![](images/infinite-improbability.gif)
 `),
 
 markdownSlide(`## Decentralized Twitter
@@ -128,18 +132,17 @@ TwitterContract.getTweets.call({ from: account })
 
 markdownSlide(
 `
-## Possible Solution:
+## Possible Solutions:
 ### Sorting logic on contract
-- Faster queries
 - Costs gas to construct.
-- Inflexible, centralized display logic.
-- Still returns all results in one batch.`
-),
+- Inflexible logic.
+- Still returns all results in one batch.
+`),
 
-slide([
-  `Possible solution`,
-  img('images/eip144.png'),
-]),
+markdownSlide(`## Possible solution: EIP 144
+- Would allow client to submit compiled EVM code to server.
+- Allows dynamic, client-specified queries of blockchain data.
+`),
 
 markdownSlide(`
 ## Common Issue
@@ -155,6 +158,7 @@ markdownSlide(`
   - Definitive proposal list (currently EIPs)
   - Poll of support (weighted by Ether?)
   - Declared implementation by client maintainers.
+- Hey, sounds like a Dapp!
 `),
 
 slide([
