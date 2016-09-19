@@ -20,11 +20,32 @@ function root(){
     // METAMASK TODAY
     //
 
-    markdownSlide(`# MetaMask Today`),
-    markdownSlide(`( GIF walkthrough )`),
+    markdownSlide(`
+      # MetaMask Today
+      with @frankie and @kevin
+    `),
+    
+    slide(img('./images/flow00.png')),
+    slide(img('./images/flow01.png')),
+    slide(img('./images/flow02.png')),
+    slide(img('./images/flow03.png')),
+    slide(img('./images/flow04.png')),
+    slide(img('./images/flow05.png')),
+    slide(img('./images/flow05a.png')),
+    slide(img('./images/flow06.png')),
+    slide(img('./images/flow07.png')),
+    slide(img('./images/flow08.png')),
+    slide(img('./images/flow09.png')),
+    slide(img('./images/flow10.png')),
+    slide(img('./images/flow11.png')),
+    
+    markdownSlide(`
+      ### status: Public Beta
+    `),
 
     slide([
       img('./images/chrome-store.png'), h('br'),
+      '44 releases since march', h('br'),
       '~2k users', h('br'),
       '~14 million RPC requests / day', h('br'),
       '( thanks infura! )'
@@ -48,15 +69,16 @@ function root(){
     // HOW IT WORKS
     //
 
-    slide([
-      markdownSlide(`# How it works`),
-      slide(img('./images/nomnoml.png')),
-      markdownSlide(`
-        ### provider engine
-        a stack of rpc-handling middleware
-      `),
-      markdownSlide(`a note on filters + load balancers`),
-    ]),
+    markdownSlide(`
+      # How it works
+           with @kumavis
+    `),
+    slide(img('./images/nomnoml.png')),
+    markdownSlide(`
+      ### provider engine
+      a stack of rpc-handling middleware
+    `),
+    markdownSlide(`a note on filters + load balancers`),
 
 // Dan Presents
 // CHALLENGES
