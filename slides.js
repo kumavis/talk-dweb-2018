@@ -13,7 +13,7 @@ function root(){
 
     markdownSlide(`
       # MetaMask
-      ### connecting browsers to blockchains
+      ### bridging browsers to blockchains
     `),
 
     //
@@ -21,33 +21,27 @@ function root(){
     //
 
     markdownSlide(`# MetaMask Today`),
-    markdownSlide(`### GIF walkthrough`),
-    slide([
-      `usage stats`,
-      slide([
-        '~2k users', h('br'),
-        img('./images/chrome-store.png'),
-      ]),
-      slide([
-        '~14 million RPC requests / day', h('br'),
-        '( thanks infura! )'
-      ]),
-    ]),
+    markdownSlide(`( GIF walkthrough )`),
 
     slide([
-      `browsers - a few`,
-      slide(`chrome - live!`),
-      slide(`opera - ready!`),
-      slide(`edge - ready!`),
-      slide(`firefox - pending!`),
-      slide(`safari - nope.`),
-      slide(`mobile - nope.`),
+      img('./images/chrome-store.png'), h('br'),
+      '~2k users', h('br'),
+      '~14 million RPC requests / day', h('br'),
+      '( thanks infura! )'
     ]),
 
-    slide([
-      `some neato dapps`,
-      slide(`etherisc - flight insurance`),
-      slide(`blockparty - party-RSVP-commit`),
+    // browser dapp compat table
+    slide([`metamask extension compat`, h('br'),h('br'),h('br'),
+      table([
+        // 'browser', 'status',
+      ],[
+        [`chrome:`, `live!`],
+        [`opera:`, `ready!`],
+        [`edge:`, `ready!`],
+        [`firefox:`, `ready!`],
+        [`safari:`, `nope :(`],
+        [`mobile:`, `nope :(`],
+      ])
     ]),
 
     //
@@ -196,9 +190,34 @@ slide([
     // FUTURE
     //
     markdownSlide(`# Future`),
-    slide(`Multiple Key-Ring types, e.g. uPort`),
-    slide(`libp2p for webRTC p2p stuff`),
-    slide(`Mascara iFrame library with gif walkthrough`),
+
+    slide(`Multiple Key-Ring types (uPort, remote key stores)`),
+    
+    slide(`
+      Browser Light Client 
+      via p2p network on webRTC
+      powered by libp2p
+      and hybrid clients
+      ( hopefully also enabling swarm + whisper )
+    `),
+
+    slide(`Mascara MetaMask Polyfill`),
+    slide(img('./images/add-script-tag.gif')),
+    slide(img('./images/mascara.gif')),
+    slide(`private keys are safe, useable across dapps`),
+
+    // browser dapp compat table
+    slide([`browser dapp compat`, h('br'),h('br'),h('br'),
+      table([
+        '', 'user has metamask', 'no metamask',
+      ],[
+        ['dapp has mascara', ':D', ':D'],
+        ['no mascara', ':D', ':('],
+      ])
+    ]),
+    
+    slide(`thanks`),
+    
   ])
 }
 
@@ -252,4 +271,11 @@ function img(src) {
       background: 'whitesmoke',
     },
   })
+}
+
+function table(headers, rows){
+  return h('table', [
+    h('thead', headers.map(label => h('td', label))),
+    h('tbody', rows.map(row => h('tr', row.map( datum => h('td', datum) )))),
+  ])
 }
