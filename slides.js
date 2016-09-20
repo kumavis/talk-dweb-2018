@@ -16,6 +16,8 @@ function root(){
       ### bridging browsers to blockchains
     `),
 
+    markdownSlide(`ease of adoption is our core goal`),
+
     //
     // METAMASK TODAY
     //
@@ -25,7 +27,10 @@ function root(){
       with @frankie and @kevin
     `),
     
-    slide(img('./images/flow00.png')),
+    slide(img('./images/flow00a.png')),
+    slide(img('./images/flow00b.png')),
+    slide(img('./images/flow00c.png')),
+    slide(img('./images/flow00d.png')),
     slide(img('./images/flow01.png')),
     slide(img('./images/flow02.png')),
     slide(img('./images/flow03.png')),
@@ -45,10 +50,11 @@ function root(){
 
     slide([
       img('./images/chrome-store.png'), h('br'),
-      '44 releases since march', h('br'),
+      '44 releases since march (weekly!)', h('br'),
       '~2k users', h('br'),
       '~14 million RPC requests / day', h('br'),
-      '( thanks infura! )'
+      '( thanks infura! )', h('br'),
+      '1 lil buterin name drop', h('br'),
     ]),
 
     // browser dapp compat table
@@ -73,12 +79,41 @@ function root(){
       # How it works
            with @kumavis
     `),
-    slide(img('./images/nomnoml.png')),
+
+    slide(`just throw an ethereum client in an extension?`),
     markdownSlide(`
-      ### provider engine
+      blocked on networking:
+
+      no tcp/udp`),
+    slide(`mandatory sync time: non-starter`),
+    slide(`rpc against trusted node`),
+    slide(`id mgmt? rpc interception`),
+    
+    slide(img('./images/nomnoml.png')),
+    
+    markdownSlide(`
+      ### web3-provider-engine
+      make your own web3 provider
+      
       a stack of rpc-handling middleware
     `),
+
+    markdownSlide(`
+      ### middleware stack
+      * cache layer
+      * id mgmt
+      * trusted rpc node
+    `),
+    
     markdownSlide(`a note on filters + load balancers`),
+
+    markdownSlide(`
+      different trust model
+
+      100% RPC - bring your own node!
+
+      lock-in devalues product
+    `),
 
 // Dan Presents
 // CHALLENGES
@@ -213,20 +248,19 @@ slide([
     //
     markdownSlide(`# Future`),
 
-    slide(`Multiple Key-Ring types (uPort, remote key stores)`),
+    slide(`Multiple Account types (uPort, remote key stores)`),
     
     slide(`
       Browser Light Client 
       via p2p network on webRTC
-      powered by libp2p
-      and hybrid clients
-      ( hopefully also enabling swarm + whisper )
     `),
+
+    slide('eth-tx-viz'),
+    slide(img('./images/tx-viz.png')),
 
     slide(`Mascara MetaMask Polyfill`),
     slide(img('./images/add-script-tag.gif')),
-    slide(img('./images/mascara.gif')),
-    slide(`private keys are safe, useable across dapps`),
+    // slide(img('./images/mascara.gif')),
 
     // browser dapp compat table
     slide([`browser dapp compat`, h('br'),h('br'),h('br'),
@@ -237,6 +271,8 @@ slide([
         ['no mascara', ':D', ':('],
       ])
     ]),
+
+    slide(`private keys are safe, useable across dapps`),
     
     slide(`thanks`),
     
@@ -290,6 +326,8 @@ function img(src) {
   return h('img', {
     src: src,
     style: {
+      maxWidth: '660px',
+      maxHeight: '700px',
       background: 'whitesmoke',
     },
   })
