@@ -1,1 +1,1 @@
-MetaMask talk for devcon2 in Shanghai 2016
+MetaMask talk for devcon3 in Cancun 2017

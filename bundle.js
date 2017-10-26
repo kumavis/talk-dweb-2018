@@ -4960,17 +4960,19 @@ var topLevel = typeof global !== 'undefined' ? global :
     typeof window !== 'undefined' ? window : {}
 var minDoc = require('min-document');
 
+var doccy;
+
 if (typeof document !== 'undefined') {
-    module.exports = document;
+    doccy = document;
 } else {
-    var doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'];
+    doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'];
 
     if (!doccy) {
         doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'] = minDoc;
     }
-
-    module.exports = doccy;
 }
+
+module.exports = doccy;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"min-document":1}],11:[function(require,module,exports){
@@ -5564,203 +5566,297 @@ function root(){
     //
 
     markdownSlide(`
-      # Ethereum on IPFS
-
-      github: @kumavis
-
-      twitter: @kumavis_
-    `),
-
-    slide(img('./images/eth_ipfs.png')),
-
-    // browser dapp compat table
-
-    slide([      
-      h('div',{
-        style: {
-          fontWeight: 'bold',
-          fontSize: '48px',
-        },
-      },'blockchain is...'),
-
-      table([''],
-      [
-        ['p2p network'],
-        ['consensus algo'],
-        ['historical log (hash linked)'],
-        ['state (hash linked)'],
-      ])
-    ]),
-
-    slide(img('./images/merkle01.png')),
-
-
-    slide([      
-      h('div',{
-        style: {
-          fontWeight: 'bold',
-          fontSize: '48px',
-        },
-      },'IPFS is...'),
-
-      table([''],
-      [
-        ['p2p network'],
-        ['hash linked data'],
-      ])
-    ]),
-
-    slide([      
-      h('div',{
-        style: {
-          fontWeight: 'bold',
-          fontSize: '48px',
-        },
-      },'Ethereum on IPFS'),
-
-      table([''],
-      [
-        ['p2p network'],
-        ['hash linked data'],
-        ['consensus layer on top'],
-      ])
-    ]),
-
-    markdownSlide(`
-      ### IPLD Resolvers
+      # M e t a M a s k
+      ### ( disecting the fox )
     `),
 
     markdownSlide(`
-      ### IPFS history
-      * hash -> data
+    - 170k users!
+
+    ![](https://i.imgur.com/PBA4oVx.png)
+
+    - Team grown from 4 → 10 (including contractors).
+
+    - metamask team
+        + james with a big heart
+    - kyokan team
+
     `),
+
 
     markdownSlide(`
-      ### IPFS history
-      * hash -> data
-      * any hash -> data
+    - So many cool Ðapps!
+
+    ![](https://i.imgur.com/DvNljyr.png)
+
     `),
+
 
     markdownSlide(`
-      ### IPFS history
-      * hash -> data
-      * any hash -> data
-      * any hash -> many data formats
+    EtherDelta
+
+
+    Ethlance
+
+
+    GitCoin, GitToken
+
+
+    Etherplay
+
+
+    Leeroy.io
+
+
+    Hellosugoi (ticketing)
+    https://tickets.hellosugoi.com/event/0x3d51005fa4defbc5fc9b35ffd06bc2f90208e7f3
+
+    Top 10 tx receiving contracts of the last year?
+
     `),
+
 
     markdownSlide(`
-      ### IPLD Path Resolution
-      [block_cid]/number
+    IPFS light client
+
     `),
+
 
     markdownSlide(`
-      ### IPLD Path Resolution
-      [block_cid]/state/[address]/balance
+    Web3 Evolution:
+
     `),
+
 
     markdownSlide(`
-      ### IPLD Path Resolution
-      [block_cid]/state/[address]/storage/[key]
+    State Channel Suppport: We've added our first “first” method:
     `),
+
+
+    markdownSlide(`    signTypedData
+
+    `),
+
 
     markdownSlide(`
-      ### IPLD Path Resolution
-      [some_app_data]/block/state/[address]/storage/[key]
+    Extracted the Soul of MetaMask (core) Platform agnosticism is the way of the future!!
+
     `),
+
 
     markdownSlide(`
-      ### IPLD Path Resolution
-      auto-generate merkle proofs
+    Platforms being developed:
+    iOS
+    Brave
+    Android
+    Mascara
 
-      without needing ethereum semantics
     `),
+
 
     markdownSlide(`
-      ### Network Actions?
+
+    # New UI
+
     `),
+
 
     markdownSlide(`
-      ### Libp2p Global PubSub
-      
-      globally subscribe to and publish data
+    (kyo-dans slides here)
+
     `),
+
 
     markdownSlide(`
-      ### Libp2p Global PubSub
-      as client...
+    What does the future hold?
 
-      subscribe to incomming blocks
-
-      publish signed transactions
     `),
+
 
     markdownSlide(`
-      ### Libp2p Global PubSub
-      as miner...
+    Hardware wallet support
 
-      subscribe to incomming blocks
-      
-      subscribe to signed transaction
+    Contract account support
 
-      publish mined blocks
     `),
+
 
     markdownSlide(`
-      ### IPNS
+    Ability to submit transactions with updated gas prices.
 
-      publish your latest block
+    Support for the wealth of scaling strategies that are coming out.
 
-      IoT can follow what you publish
     `),
+
 
     markdownSlide(`
-      ### Why?
+    Increasingly decentralized.
+
+    Increasingly easy to contribute to.
+
     `),
+
 
     markdownSlide(`
-      ### general
+    ### **call to action: **How to work/collaborate with us****
 
-      more mixing of technologies
     `),
+
 
     markdownSlide(`
-      ### MetaMask
+    how to communicate with us?
 
-      default:
-
-      trusted RPC service
     `),
+
 
     markdownSlide(`
-      ### MetaMask
+    **If you're doing a token sale, how to reach out to us?**
 
-      trust agility!
-
-      can change your data source
     `),
+
 
     markdownSlide(`
-      ### MetaMask
 
-      no tcp/udp in browser
+    frankies extra slides for mascara
+
     `),
+
 
     markdownSlide(`
-      ### MetaMask
+    MetaMascara(mascara) brings metamask when metamask is not installed.
 
-      2nd network
-
-      on webrtc
-
-      via libp2p
-
-      and bridge nodes
     `),
+
 
     markdownSlide(`
-      ### thanks :)
+    ## How does it work and how to use it:
+
     `),
-    
+
+
+    markdownSlide(`
+    Mascara is an iframe that acts as a proxy between your dapp and metamask core.
+    The metamask core is the global context housed in a service worker, it does the
+    key management for every dapp the user visits.
+
+    `),
+
+
+    markdownSlide(`
+    ![nomnom](https://raw.githubusercontent.com/MetaMask/mascara/master/images/nomnoml.png)
+
+    `),
+
+
+    markdownSlide(`
+    ## In The Past
+
+    `),
+
+
+    markdownSlide(`
+
+    window.addEventListener('load', function() {
+
+      // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+      if (typeof web3 !== 'undefined') {
+        // Use Mist/MetaMask's provider
+        window.web3 = new Web3(web3.currentProvider);
+      } else {
+        console.log('No web3? You should consider trying MetaMask!')
+        // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+        window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+      }
+
+      // Now you can start your app & access web3 freely:
+      startApp()
+
+    so much... toooo much
+
+    `),
+
+
+    markdownSlide(`
+    to use as a CDN put this script tag in the \`<head>\` of your html file:
+
+    `),
+
+
+    markdownSlide(`
+
+    // <script src="https://zero.metamask.io/mascara.js"></script>
+
+    // npm i --save metamascara
+
+
+    or bring your own:
+
+
+    const metamask = require('metamascara')
+    const EthJs = require('ethjs')
+
+    // mascara will use the environmental provider if the user brings one
+    // in the form of metamask extension, mist or parity
+    // other wise it will make one for you :}
+
+    const ethereumProvider = metamask.createDefaultProvider()
+
+    const eth = new EthJs(ethereumProvider)
+
+    // do stuff...
+
+    `),
+
+
+    markdownSlide(`
+    ## Developing:
+
+    `),
+
+
+    markdownSlide(`
+    For development with metamask-extension/mascara to point the iframe at localhost just do:
+    \`\`\`js
+    const metamask = require('metamascara')
+    const ethereumProvider = metamask.createDefaultProvider({
+        host: 'http://localhost:9001'
+      }) // or what ever port you use
+    \`\`\`
+
+    `),
+
+
+    markdownSlide(`
+    # THE FUTURE?!
+
+    `),
+
+
+    markdownSlide(`
+    - platform agnostic
+
+    `),
+
+
+    markdownSlide(`
+    metamask in all the things!
+
+    `),
+
+
+    markdownSlide(`
+    - client side services
+
+    `),
+
+
+    markdownSlide(`
+    push the pattern as a temporary solution to a decetralized future and the module system of the web
+
+    all are things as service workers?
+
+    `),
+
   ])
 }
 
