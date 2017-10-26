@@ -13,6 +13,10 @@ Reveal.initialize({
     { src: 'plugin/markdown/marked.js' },
     { src: 'plugin/markdown/markdown.js' },
     // { src: 'plugin/notes/notes.js', async: true },
-    // { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+      [].forEach.call( document.querySelectorAll( '.highlight' ), function( v, i) {
+        hljs.highlightBlock(v);
+      });
+    } }
   ]
 });

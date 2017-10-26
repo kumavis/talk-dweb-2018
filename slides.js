@@ -25,50 +25,87 @@ function root(){
 
     ![](https://i.imgur.com/PBA4oVx.png)
 
+    `),
+
+    markdownSlide(`
     - Team grown from 4 → 10 (including contractors).
 
     - metamask team
-        + james with a big heart
+      - including our savior james
     - kyokan team
-
     `),
-
 
     markdownSlide(`
     - So many cool Ðapps!
 
     ![](https://i.imgur.com/DvNljyr.png)
-
     `),
 
 
     markdownSlide(`
-    EtherDelta
-
-
-    Ethlance
-
-
-    GitCoin, GitToken
-
-
-    Etherplay
-
-
-    Leeroy.io
-
-
-    Hellosugoi (ticketing)
-    https://tickets.hellosugoi.com/event/0x3d51005fa4defbc5fc9b35ffd06bc2f90208e7f3
-
-    Top 10 tx receiving contracts of the last year?
-
+    Top 10 tx receiving contracts of the last year?????
     `),
+
+    markdownSlide(`
+    # crypto_kitties
+
+    ![](./images/screenos/crypto_kitties.png)
+    `),
+
+    markdownSlide(`
+    # crypto_punks
+
+    ![](./images/screenos/crypto_punks.png)
+    `),
+
+    markdownSlide(`
+    # ether_delta
+
+    ![](./images/screenos/ether_delta.png)
+    `),
+
+    markdownSlide(`
+    # etherplay
+
+    ![](./images/screenos/etherplay.png)
+    `),
+
+    markdownSlide(`
+    # ethlance
+
+    ![](./images/screenos/ethlance.png)
+    `),
+
+    markdownSlide(`
+    # gitcoin
+
+    ![](./images/screenos/gitcoin.png)
+    `),
+
+    markdownSlide(`
+    # gittoken
+
+    ![](./images/screenos/gittoken.png)
+    `),
+
+    markdownSlide(`
+    # leeroy
+
+    ![](./images/screenos/leeroy.png)
+    `),
+
+    markdownSlide(`
+    # sugoi
+
+    ![](./images/screenos/sugoi.png)
+    `),
+
+
+
 
 
     markdownSlide(`
     IPFS light client
-
     `),
 
 
@@ -83,8 +120,8 @@ function root(){
     `),
 
 
-    markdownSlide(`    signTypedData
-
+    markdownSlide(`
+      \`eth_signTypedData\`
     `),
 
 
@@ -204,76 +241,63 @@ function root(){
     `),
 
 
-    markdownSlide(`
+    slide([
+      code(`
 
-    window.addEventListener('load', function() {
+        window.addEventListener('load', function() {
+          \/\/ Checking if Web3 has been injected by the browser (Mist/MetaMask)
+          if (typeof web3 !== 'undefined') {
+            \/\/ Use Mist/MetaMask's provider
+            window.web3 = new Web3(web3.currentProvider);
+          } else {
+            console.log('No web3? You should consider trying MetaMask!')
+            \/\/ fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+            window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+          }
 
-      // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-      if (typeof web3 !== 'undefined') {
-        // Use Mist/MetaMask's provider
-        window.web3 = new Web3(web3.currentProvider);
-      } else {
-        console.log('No web3? You should consider trying MetaMask!')
-        // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-        window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-      }
-
-      // Now you can start your app & access web3 freely:
-      startApp()
-
-    so much... toooo much
-
-    `),
-
-
-    markdownSlide(`
-    to use as a CDN put this script tag in the \`<head>\` of your html file:
-
-    `),
+          \/\/ Now you can start your app & access web3 freely:
+          startApp()
+        }
+      `),
+    ]),
 
 
     markdownSlide(`
-
-    // <script src="https://zero.metamask.io/mascara.js"></script>
-
-    // npm i --save metamascara
-
-
-    or bring your own:
-
-
-    const metamask = require('metamascara')
-    const EthJs = require('ethjs')
-
-    // mascara will use the environmental provider if the user brings one
-    // in the form of metamask extension, mist or parity
-    // other wise it will make one for you :}
-
-    const ethereumProvider = metamask.createDefaultProvider()
-
-    const eth = new EthJs(ethereumProvider)
-
-    // do stuff...
+    we can do better
 
     `),
 
+    slide([
+      code(`
+        <script src="https://wallet.metamask.io/mascara.js"></script>
+        <script>
+          const ethereumProvider = metamask.createDefaultProvider()
+        </script>
+      `),
+      code(`
+        const metamask = require('metamascara')
 
-    markdownSlide(`
-    ## Developing:
+        const ethereumProvider = metamask.createDefaultProvider()
+      `),
+    ]),
 
-    `),
 
-
-    markdownSlide(`
-    For development with metamask-extension/mascara to point the iframe at localhost just do:
-    \`\`\`js
-    const metamask = require('metamascara')
-    const ethereumProvider = metamask.createDefaultProvider({
-        host: 'http://localhost:9001'
-      }) // or what ever port you use
-    \`\`\`
-
-    `),
+    // markdownSlide(`
+    // ## Developing
+    // `),
+    //
+    //
+    // slide([
+    //   markdown(`
+    //     For development with metamask-extension/mascara to point the iframe at localhost just do:
+    //   `),
+    //   code(`
+    //     const metamask = require('metamascara')
+    //     const ethereumProvider = metamask.createDefaultProvider({
+    //       host: 'http://localhost:9001'
+    //     }) // or what ever port you use
+    //   `),
+    // ]),
 
 
     markdownSlide(`
@@ -311,12 +335,20 @@ function root(){
 }
 
 function markdown(text) {
-  return h('script', {
-    'data-markdown': '',
-    'attributes': {
-      'type': 'text/template'
-    }
-  }, text)
+  return (
+    h('script', {
+      'data-markdown': '',
+      'attributes': {
+        'type': 'text/template'
+      }
+    }, text)
+  )
+}
+
+function code(text) {
+  return (
+    h('pre.highlight', {}, text)
+  )
 }
 
 function markdownSlide(text){
@@ -339,17 +371,13 @@ function markdownSlide(text){
 
 function slide(content){
   return (
-
     h('section', content)
-
   )
 }
 
 function slideshowWrapper(content){
   return (
-
     h('.reveal', [ h('.slides', content) ])
-
   )
 }
 
