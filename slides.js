@@ -21,18 +21,25 @@ function root(){
     `),
 
     markdownSlide(`
-    - 170k users!
-
-    ![](https://i.imgur.com/PBA4oVx.png)
-
+      # what is metamask
+      ### ( and who uses it? )
+      - skin, fur ( users )
+      - appendages ( dapp devs )
+      - internal organs ( wallet devs )
     `),
 
     markdownSlide(`
-    - Team grown from 4 → 10 (including contractors).
+      # eyes, brain
+      ### what we see and know
+    `),
 
-    - metamask team
-      - including our savior james
-    - kyokan team
+    markdownSlide(`
+    - 170k users!
+    ![](https://i.imgur.com/PBA4oVx.png)
+    `),
+
+    markdownSlide(`
+    ### Brave browser support!
     `),
 
     markdownSlide(`
@@ -40,7 +47,6 @@ function root(){
 
     ![](https://i.imgur.com/DvNljyr.png)
     `),
-
 
     markdownSlide(`
     Top 10 tx receiving contracts of the last year?????
@@ -101,149 +107,63 @@ function root(){
     `),
 
 
+    markdownSlide(`
+    - Team grown from 4 → 10 (including contractors).
 
+    - metamask team
+      - including our savior james
+    - kyokan team
+    `),
 
+    //
+    // Kyo dan
+    //
 
     markdownSlide(`
-    IPFS light client
+    # New UI
+    ### with kyo-dan
+    `),
+
+    markdownSlide(`
+    (kyo-dans slides here)
     `),
 
 
-    markdownSlide(`
-    Web3 Evolution:
+    //
+    // kumavis
+    //
 
+
+    markdownSlide(`
+    # New RPC methods
     `),
 
-
     markdownSlide(`
-    State Channel Suppport: We've added our first “first” method:
+      \`debug_traceTransaction\`
     `),
 
+    markdownSlide(`
+      \`subs?\`
+    `),
 
     markdownSlide(`
+      State Channel Suppport: We've added our first “first” method:
       \`eth_signTypedData\`
     `),
 
 
-    markdownSlide(`
-    Extracted the Soul of MetaMask (core) Platform agnosticism is the way of the future!!
-
-    `),
-
+    //
+    // frankie
+    //
 
     markdownSlide(`
-    Platforms being developed:
-    iOS
-    Brave
-    Android
-    Mascara
+    # building dapps
 
+    ### with metamask
     `),
-
-
-    markdownSlide(`
-
-    # New UI
-
-    `),
-
-
-    markdownSlide(`
-    (kyo-dans slides here)
-
-    `),
-
-
-    markdownSlide(`
-    What does the future hold?
-
-    `),
-
-
-    markdownSlide(`
-    Hardware wallet support
-
-    Contract account support
-
-    `),
-
-
-    markdownSlide(`
-    Ability to submit transactions with updated gas prices.
-
-    Support for the wealth of scaling strategies that are coming out.
-
-    `),
-
-
-    markdownSlide(`
-    Increasingly decentralized.
-
-    Increasingly easy to contribute to.
-
-    `),
-
-
-    markdownSlide(`
-    ### **call to action: **How to work/collaborate with us****
-
-    `),
-
-
-    markdownSlide(`
-    how to communicate with us?
-
-    `),
-
-
-    markdownSlide(`
-    **If you're doing a token sale, how to reach out to us?**
-
-    `),
-
-
-    markdownSlide(`
-
-    frankies extra slides for mascara
-
-    `),
-
-
-    markdownSlide(`
-    MetaMascara(mascara) brings metamask when metamask is not installed.
-
-    `),
-
-
-    markdownSlide(`
-    ## How does it work and how to use it:
-
-    `),
-
-
-    markdownSlide(`
-    Mascara is an iframe that acts as a proxy between your dapp and metamask core.
-    The metamask core is the global context housed in a service worker, it does the
-    key management for every dapp the user visits.
-
-    `),
-
-
-    markdownSlide(`
-    ![nomnom](https://raw.githubusercontent.com/MetaMask/mascara/master/images/nomnoml.png)
-
-    `),
-
-
-    markdownSlide(`
-    ## In The Past
-
-    `),
-
 
     slide([
       code(`
-
         window.addEventListener('load', function() {
           \/\/ Checking if Web3 has been injected by the browser (Mist/MetaMask)
           if (typeof web3 !== 'undefined') {
@@ -281,54 +201,109 @@ function root(){
       `),
     ]),
 
-
-    // markdownSlide(`
-    // ## Developing
-    // `),
-    //
-    //
-    // slide([
-    //   markdown(`
-    //     For development with metamask-extension/mascara to point the iframe at localhost just do:
-    //   `),
-    //   code(`
-    //     const metamask = require('metamascara')
-    //     const ethereumProvider = metamask.createDefaultProvider({
-    //       host: 'http://localhost:9001'
-    //     }) // or what ever port you use
-    //   `),
-    // ]),
-
-
     markdownSlide(`
-    # THE FUTURE?!
+    MetaMascara(mascara) selects the environmental web3 provider for you.
 
     `),
 
 
     markdownSlide(`
-    - platform agnostic
+    MetaMascara(mascara) brings metamask when metamask is not installed.
 
     `),
 
+
+    markdownSlide(`
+    ## How does it work and how to use it:
+
+    `),
+
+    markdownSlide(`
+    ![nomnom](https://raw.githubusercontent.com/MetaMask/mascara/master/images/nomnoml.png)
+
+    Mascara is an iframe that acts as a proxy between your dapp and metamask core.
+    The metamask core is the global context housed in a service worker, it does the
+    key management for every dapp the user visits.
+    `),
+
+    markdownSlide(`
+      ( mascara first time flow )
+    `),
+
+
+    //
+    // kumavis
+    //
+
+    markdownSlide(`
+    # future
+    ### whats on the roadmap
+    `),
+
+    markdownSlide(`
+    we know you're waiting:
+
+    - Hardware wallet support
+    - Contract (proxy) account support
+    - account abstraction support
+    `),
+
+    markdownSlide(`
+    - Modularity
+
+    Extract the Soul of MetaMask (core)
+    `),
+
+    markdownSlide(`
+    IPFS zero + light client
+    `),
+
+    markdownSlide(`
+    ( ipfs light client slides )
+    `),
+
+    markdownSlide(`
+    (( slide recycle bin: ))
+    `),
+
+
+    markdownSlide(`
+    Ability to submit transactions with updated gas prices.
+
+    Support for the wealth of scaling strategies that are coming out.
+
+    `),
+
+    markdownSlide(`
+    Increasingly decentralized.
+
+    Increasingly easy to contribute to.
+
+    `),
+
+    markdownSlide(`
+    ### **call to action: **How to work/collaborate with us****
+
+    `),
+
+    markdownSlide(`
+    how to communicate with us?
+
+    `),
+
+    markdownSlide(`
+    **If you're doing a token sale, how to reach out to us?**
+
+    `),
 
     markdownSlide(`
     metamask in all the things!
-
     `),
-
 
     markdownSlide(`
     - client side services
-
-    `),
-
-
-    markdownSlide(`
     push the pattern as a temporary solution to a decetralized future and the module system of the web
-
     all are things as service workers?
-
     `),
 
   ])
