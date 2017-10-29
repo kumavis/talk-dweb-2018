@@ -19,7 +19,7 @@ function root(){
       # M e t a M a s k
       ### ( disecting the fox )
     `),
-
+// lol
     markdownSlide(`
       # what is metamask
       ### ( and who uses it? )
@@ -164,20 +164,23 @@ function root(){
 
     slide([
       code(`
-        window.addEventListener('load', function() {
-          \/\/ Checking if Web3 has been injected by the browser (Mist/MetaMask)
-          if (typeof web3 !== 'undefined') {
-            \/\/ Use Mist/MetaMask's provider
-            window.web3 = new Web3(web3.currentProvider);
-          } else {
-            console.log('No web3? You should consider trying MetaMask!')
-            \/\/ fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-            window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-          }
+  window.addEventListener('load', function() {
+    \/\/ Checking if Web3 has been injected
+    \/\/ by the browser (Mist/MetaMask)
+    if (typeof web3 !== 'undefined') {
+      \/\/ Use Mist/MetaMask's provider
+      window.web3 = new Web3(web3.currentProvider);
+    } else {
+      console.log('No web3? You should consider trying MetaMask!')
+      \/\/ fallback - use your fallback strategy
+      \/\/ (local node / hosted node + in-dapp id mgmt / fail)
+      const provider = new Web3.providers.HttpProvider("http://localhost:8545")
+      window.web3 = new Web3(provider);
+    }
 
-          \/\/ Now you can start your app & access web3 freely:
-          startApp()
-        }
+    \/\/ Now you can start your app & access web3 freely:
+    startApp()
+  }
       `),
     ]),
 
@@ -189,15 +192,15 @@ function root(){
 
     slide([
       code(`
-        <script src="https://wallet.metamask.io/mascara.js"></script>
-        <script>
-          const ethereumProvider = metamask.createDefaultProvider()
-        </script>
+      <script src="https://wallet.metamask.io/mascara.js"></script>
+      <script>
+        const ethereumProvider = metamask.createDefaultProvider()
+      </script>
       `),
       code(`
-        const metamask = require('metamascara')
+      const metamask = require('metamascara')
 
-        const ethereumProvider = metamask.createDefaultProvider()
+      const ethereumProvider = metamask.createDefaultProvider()
       `),
     ]),
 
