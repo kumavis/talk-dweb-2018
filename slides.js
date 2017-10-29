@@ -222,8 +222,10 @@ function root(){
     `),
 
     markdownSlide(`
-    ![nomnom](https://raw.githubusercontent.com/MetaMask/mascara/master/images/nomnoml.png)
+    ![nomnom](images/mascara-nom.png)
+    `),
 
+    markdownSlide(`
     Mascara is an iframe that acts as a proxy between your dapp and metamask core.
     The metamask core is the global context housed in a service worker, it does the
     key management for every dapp the user visits.
