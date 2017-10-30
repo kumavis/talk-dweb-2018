@@ -56,62 +56,64 @@ function root(){
     `),
 
     markdownSlide(`
-    Top 10 tx receiving contracts of the last year?????
+    ![](./images/charts/rpc_hits.png)
+    
+    Dapps by rpc requests
     `),
 
-    markdownSlide(`
-    # crypto_kitties
+    // markdownSlide(`
+    // # crypto_kitties
 
-    ![](./images/screenos/crypto_kitties.png)
-    `),
+    // ![](./images/screenos/crypto_kitties.png)
+    // `),
 
-    markdownSlide(`
-    # crypto_punks
+    // markdownSlide(`
+    // # crypto_punks
 
-    ![](./images/screenos/crypto_punks.png)
-    `),
+    // ![](./images/screenos/crypto_punks.png)
+    // `),
 
-    markdownSlide(`
-    # ether_delta
+    // markdownSlide(`
+    // # ether_delta
 
-    ![](./images/screenos/ether_delta.png)
-    `),
+    // ![](./images/screenos/ether_delta.png)
+    // `),
 
-    markdownSlide(`
-    # etherplay
+    // markdownSlide(`
+    // # etherplay
 
-    ![](./images/screenos/etherplay.png)
-    `),
+    // ![](./images/screenos/etherplay.png)
+    // `),
 
-    markdownSlide(`
-    # ethlance
+    // markdownSlide(`
+    // # ethlance
 
-    ![](./images/screenos/ethlance.png)
-    `),
+    // ![](./images/screenos/ethlance.png)
+    // `),
 
-    markdownSlide(`
-    # gitcoin
+    // markdownSlide(`
+    // # gitcoin
 
-    ![](./images/screenos/gitcoin.png)
-    `),
+    // ![](./images/screenos/gitcoin.png)
+    // `),
 
-    markdownSlide(`
-    # gittoken
+    // markdownSlide(`
+    // # gittoken
 
-    ![](./images/screenos/gittoken.png)
-    `),
+    // ![](./images/screenos/gittoken.png)
+    // `),
 
-    markdownSlide(`
-    # leeroy
+    // markdownSlide(`
+    // # leeroy
 
-    ![](./images/screenos/leeroy.png)
-    `),
+    // ![](./images/screenos/leeroy.png)
+    // `),
 
-    markdownSlide(`
-    # sugoi
+    // markdownSlide(`
+    // # sugoi
 
-    ![](./images/screenos/sugoi.png)
-    `),
+    // ![](./images/screenos/sugoi.png)
+    // `),
 
 
     markdownSlide(`
@@ -150,12 +152,12 @@ function root(){
     `),
 
     markdownSlide(`
-      \`subs?\`
+      State Channel Suppport: We've added our first “first” method:
+      \`eth_signTypedData\`
     `),
 
     markdownSlide(`
-      State Channel Suppport: We've added our first “first” method:
-      \`eth_signTypedData\`
+      \`subs: coming soon\`
     `),
 
 
@@ -262,12 +264,27 @@ function root(){
     `),
 
     markdownSlide(`
-    IPFS zero + light client
+    # IPFS zero + light client
     `),
 
     markdownSlide(`
-    ( ipfs light client slides )
+    ![](./images/screenos/eth-ipfs.png)
     `),
+
+    slide([
+      h('video', {
+        src: './images/screenos/ipfs_provider.m4v',
+        controls: true,
+      }),
+    ]),
+
+
+    slide([
+      h('video', {
+        src: './images/screenos/ipfs_graph.m4v',
+        controls: true,
+      }),
+    ]),
 
     markdownSlide(`
     (( slide recycle bin: ))
