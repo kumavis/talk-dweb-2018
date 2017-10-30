@@ -7663,6 +7663,7 @@ function root(){
     // METAMASK TODAY
     //
 
+
     slide([
       h('#logo-container'),
     ]),
@@ -7671,7 +7672,6 @@ function root(){
       h('h1', `M E T A M A S K`),
       h('h3', `( disecting the fox )`),
     ]),
-
 
     markdownSlide(`
       # what is metamask
@@ -7689,7 +7689,7 @@ function root(){
 
     markdownSlide(`
     ![](./images/charts/user_count.png)
-    
+
     170k users and climbing!
     `),
 
@@ -7705,7 +7705,7 @@ function root(){
 
     markdownSlide(`
     ![](./images/charts/rpc_hits.png)
-    
+
     Dapps by rpc requests
     `),
 
@@ -7821,20 +7821,23 @@ function root(){
 
     slide([
       code(`
-        window.addEventListener('load', function() {
-          \/\/ Checking if Web3 has been injected by the browser (Mist/MetaMask)
-          if (typeof web3 !== 'undefined') {
-            \/\/ Use Mist/MetaMask's provider
-            window.web3 = new Web3(web3.currentProvider);
-          } else {
-            console.log('No web3? You should consider trying MetaMask!')
-            \/\/ fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-            window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-          }
+  window.addEventListener('load', function() {
+    \/\/ Checking if Web3 has been injected
+    \/\/ by the browser (Mist/MetaMask)
+    if (typeof web3 !== 'undefined') {
+      \/\/ Use Mist/MetaMask's provider
+      window.web3 = new Web3(web3.currentProvider);
+    } else {
+      console.log('No web3? You should consider trying MetaMask!')
+      \/\/ fallback - use your fallback strategy
+      \/\/ (local node / hosted node + in-dapp id mgmt / fail)
+      const provider = new Web3.providers.HttpProvider("http://localhost:8545")
+      window.web3 = new Web3(provider);
+    }
 
-          \/\/ Now you can start your app & access web3 freely:
-          startApp()
-        }
+    \/\/ Now you can start your app & access web3 freely:
+    startApp()
+  }
       `),
     ]),
 
@@ -7846,15 +7849,15 @@ function root(){
 
     slide([
       code(`
-        <script src="https://wallet.metamask.io/mascara.js"></script>
-        <script>
-          const ethereumProvider = metamask.createDefaultProvider()
-        </script>
+      <script src="https://wallet.metamask.io/mascara.js"></script>
+      <script>
+        const ethereumProvider = metamask.createDefaultProvider()
+      </script>
       `),
       code(`
-        const metamask = require('metamascara')
+      const metamask = require('metamascara')
 
-        const ethereumProvider = metamask.createDefaultProvider()
+      const ethereumProvider = metamask.createDefaultProvider()
       `),
     ]),
 
@@ -7876,15 +7879,62 @@ function root(){
     `),
 
     markdownSlide(`
-    ![nomnom](https://raw.githubusercontent.com/MetaMask/mascara/master/images/nomnoml.png)
+    ![nomnom](images/mascara/mascara-nom.png)
+    `),
 
+    markdownSlide(`
     Mascara is an iframe that acts as a proxy between your dapp and metamask core.
     The metamask core is the global context housed in a service worker, it does the
     key management for every dapp the user visits.
     `),
 
     markdownSlide(`
-      ( mascara first time flow )
+    ![nomnom](images/mascara/mascara-first-time-00.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-01.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-02.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-03.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-04.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-05.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-06.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-07.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-08.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-09.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-10.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-11.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-12.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-13.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-14.png)
+    `),
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-first-time-15.png)
     `),
 
 
