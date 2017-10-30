@@ -149,6 +149,8 @@ function root(){
 
     markdownSlide(`
       \`debug_traceTransaction\`
+
+![](./images/screenos/trace.png)
     `),
 
     /*
