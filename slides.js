@@ -15,10 +15,15 @@ function root(){
     // METAMASK TODAY
     //
 
-    markdownSlide(`
-      # M e t a M a s k
-      ### ( disecting the fox )
-    `),
+    slide([
+      h('#logo-container'),
+    ]),
+
+    slide([
+      h('h1', `M E T A M A S K`),
+      h('h3', `( disecting the fox )`),
+    ]),
+
 
     markdownSlide(`
       # what is metamask
