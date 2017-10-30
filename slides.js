@@ -15,14 +15,20 @@ function root(){
     // METAMASK TODAY
     //
 
-    markdownSlide(`
-      # M e t a M a s k
-      ### ( disecting the fox )
-    `),
-// lol
+
+    slide([
+      h('#logo-container'),
+    ]),
+
+    slide([
+      h('h1', `M E T A M A S K`),
+      h('h3', `( disecting the fox )`),
+    ]),
+
     markdownSlide(`
       # what is metamask
       ### ( and who uses it? )
+      - eyes, brain
       - skin, fur ( users )
       - appendages ( dapp devs )
       - internal organs ( wallet devs )
@@ -34,8 +40,9 @@ function root(){
     `),
 
     markdownSlide(`
-    - 170k users!
-    ![](https://i.imgur.com/PBA4oVx.png)
+    ![](./images/charts/user_count.png)
+
+    170k users and climbing!
     `),
 
     markdownSlide(`
@@ -45,66 +52,68 @@ function root(){
     markdownSlide(`
     - So many cool Ðapps!
 
-    ![](https://i.imgur.com/DvNljyr.png)
+    ![](./images/charts/dapps.png)
     `),
 
     markdownSlide(`
-    Top 10 tx receiving contracts of the last year?????
+    ![](./images/charts/rpc_hits.png)
+
+    Dapps by rpc requests
     `),
 
-    markdownSlide(`
-    # crypto_kitties
+    // markdownSlide(`
+    // # crypto_kitties
 
-    ![](./images/screenos/crypto_kitties.png)
-    `),
+    // ![](./images/screenos/crypto_kitties.png)
+    // `),
 
-    markdownSlide(`
-    # crypto_punks
+    // markdownSlide(`
+    // # crypto_punks
 
-    ![](./images/screenos/crypto_punks.png)
-    `),
+    // ![](./images/screenos/crypto_punks.png)
+    // `),
 
-    markdownSlide(`
-    # ether_delta
+    // markdownSlide(`
+    // # ether_delta
 
-    ![](./images/screenos/ether_delta.png)
-    `),
+    // ![](./images/screenos/ether_delta.png)
+    // `),
 
-    markdownSlide(`
-    # etherplay
+    // markdownSlide(`
+    // # etherplay
 
-    ![](./images/screenos/etherplay.png)
-    `),
+    // ![](./images/screenos/etherplay.png)
+    // `),
 
-    markdownSlide(`
-    # ethlance
+    // markdownSlide(`
+    // # ethlance
 
-    ![](./images/screenos/ethlance.png)
-    `),
+    // ![](./images/screenos/ethlance.png)
+    // `),
 
-    markdownSlide(`
-    # gitcoin
+    // markdownSlide(`
+    // # gitcoin
 
-    ![](./images/screenos/gitcoin.png)
-    `),
+    // ![](./images/screenos/gitcoin.png)
+    // `),
 
-    markdownSlide(`
-    # gittoken
+    // markdownSlide(`
+    // # gittoken
 
-    ![](./images/screenos/gittoken.png)
-    `),
+    // ![](./images/screenos/gittoken.png)
+    // `),
 
-    markdownSlide(`
-    # leeroy
+    // markdownSlide(`
+    // # leeroy
 
-    ![](./images/screenos/leeroy.png)
-    `),
+    // ![](./images/screenos/leeroy.png)
+    // `),
 
-    markdownSlide(`
-    # sugoi
+    // markdownSlide(`
+    // # sugoi
 
-    ![](./images/screenos/sugoi.png)
-    `),
+    // ![](./images/screenos/sugoi.png)
+    // `),
 
 
     markdownSlide(`
@@ -143,12 +152,12 @@ function root(){
     `),
 
     markdownSlide(`
-      \`subs?\`
+      State Channel Suppport: We've added our first “first” method:
+      \`eth_signTypedData\`
     `),
 
     markdownSlide(`
-      State Channel Suppport: We've added our first “first” method:
-      \`eth_signTypedData\`
+      \`subs: coming soon\`
     `),
 
 
@@ -305,12 +314,27 @@ function root(){
     `),
 
     markdownSlide(`
-    IPFS zero + light client
+    # IPFS zero + light client
     `),
 
     markdownSlide(`
-    ( ipfs light client slides )
+    ![](./images/screenos/eth-ipfs.png)
     `),
+
+    slide([
+      h('video', {
+        src: './images/screenos/ipfs_provider.m4v',
+        controls: true,
+      }),
+    ]),
+
+
+    slide([
+      h('video', {
+        src: './images/screenos/ipfs_graph.m4v',
+        controls: true,
+      }),
+    ]),
 
     markdownSlide(`
     (( slide recycle bin: ))
