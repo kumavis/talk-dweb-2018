@@ -42,7 +42,7 @@ function root(){
     markdownSlide(`
     ![](./images/charts/user_count.png)
 
-    170k users and climbing!
+    180k users and climbing!
     `),
 
     markdownSlide(`
@@ -149,16 +149,55 @@ function root(){
 
     markdownSlide(`
       \`debug_traceTransaction\`
+
+![](./images/screenos/trace.png)
     `),
 
+    /*
+     * eth_signTypedData
+     */
     markdownSlide(`
-      State Channel Suppport: We've added our first “first” method:
+      Our first "new" method:
+
       \`eth_signTypedData\`
+
+      - EIP 712 (Thanks Leonid Logvinov + Sergey Ukustov!)
+      - Human readable
+      - Structured data
+      - Cheap to validate on-chain
+      - Enables state channels
     `),
 
-    markdownSlide(`
-      \`subs: coming soon\`
-    `),
+    markdownSlide([`\`eth_signTypedData\``,
+      code(`
+
+        const msgParams = [
+          {
+            type: 'string',      // Any valid solidity type
+            name: 'Message',     // Any string label you want
+            value: 'Hi, Alice!'  // The value to sign
+         },
+         {
+           type: 'uint32',
+              name: 'A number',
+              value: '1337'
+          }
+        ]
+
+        web3.currentProvider.sendAsync({ //
+          method: 'eth_signTypedData',
+          params: [msgParams, web3.eth.accounts[0]],
+          from: from,
+        }, callback)
+      `),
+    ]),
+
+    markdownSlide([`\`eth_signTypedData\`
+
+![](./images/screenos/signTypedData.png)
+      `,
+    ]),
+
 
 
     //
