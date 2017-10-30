@@ -28,6 +28,7 @@ function root(){
     markdownSlide(`
       # what is metamask
       ### ( and who uses it? )
+      - eyes, brain
       - skin, fur ( users )
       - appendages ( dapp devs )
       - internal organs ( wallet devs )
@@ -39,8 +40,9 @@ function root(){
     `),
 
     markdownSlide(`
-    - 170k users!
-    ![](https://i.imgur.com/PBA4oVx.png)
+    ![](./images/charts/user_count.png)
+    
+    170k users and climbing!
     `),
 
     markdownSlide(`
@@ -50,7 +52,7 @@ function root(){
     markdownSlide(`
     - So many cool Ðapps!
 
-    ![](https://i.imgur.com/DvNljyr.png)
+    ![](./images/charts/dapps.png)
     `),
 
     markdownSlide(`
