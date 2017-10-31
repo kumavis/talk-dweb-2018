@@ -53,6 +53,7 @@ function root(){
 
     markdownSlide(`
     ### Brave browser support!
+    ![](./images/screenos/brave_screenshot.png)
     `),
 
     markdownSlide(`
@@ -284,7 +285,7 @@ function root(){
 
 
     markdownSlide(`
-      ### Mascara is in DEVElOPER ALAPHA
+      ### Mascara is in DEVElOPER ALPHA
     `),
 
     //
