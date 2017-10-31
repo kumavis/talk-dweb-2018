@@ -276,18 +276,6 @@ function root(){
     markdownSlide(`
     ![nomnom](images/mascara/mascara-first-time-11.png)
     `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-12.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-13.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-14.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-15.png)
-    `),
 
 
     //
