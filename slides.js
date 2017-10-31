@@ -234,11 +234,11 @@ function root(){
     ![nomnom](images/mascara/mascara-nom.png)
     `),
 
-    markdownSlide(`
-    Mascara is an iframe that acts as a proxy between your dapp and metamask core.
-    The metamask core is the global context housed in a service worker, it does the
-    key management for every dapp the user visits.
-    `),
+    // markdownSlide(`
+    // Mascara is an iframe that acts as a proxy between your dapp and metamask core.
+    // The metamask core is the global context housed in a service worker, it does the
+    // key management for every dapp the user visits.
+    // `),
 
     markdownSlide(`
     ![nomnom](images/mascara/mascara-first-time-00.png)
@@ -259,10 +259,10 @@ function root(){
     ![nomnom](images/mascara/mascara-first-time-05.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-06.png)
+    ![nomnom](images/mascara/mascara-first-time-07.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-07.png)
+    ![nomnom](images/mascara/mascara-first-time-06.png)
     `),
     markdownSlide(`
     ![nomnom](images/mascara/mascara-first-time-08.png)
@@ -277,6 +277,10 @@ function root(){
     ![nomnom](images/mascara/mascara-first-time-11.png)
     `),
 
+
+    markdownSlide(`
+      ### Mascara is in DEVElOPER ALAPHA
+    `),
 
     //
     // kumavis
