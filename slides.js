@@ -27,11 +27,10 @@ function root(){
 
     markdownSlide(`
       # what is metamask
-      ### ( and who uses it? )
-      - eyes, brain
-      - skin, fur ( users )
-      - appendages ( dapp devs )
-      - internal organs ( wallet devs )
+      - eyes & brain
+      - skin & fur
+      - howl & gait
+      - internal organs
     `),
 
     markdownSlide(`
@@ -43,6 +42,13 @@ function root(){
     ![](./images/charts/user_count.png)
 
     180k users and climbing!
+    `),
+
+    markdownSlide(`
+    - Chrome
+    - Firefox
+    - Opera
+    - no Safari :(
     `),
 
     markdownSlide(`
@@ -129,7 +135,11 @@ function root(){
     //
 
     markdownSlide(`
-    # New UI
+    # Fur and Skin
+    ### Look and feel
+    `),
+
+    markdownSlide(`
     ###### with kyo-dan
     ## ![](./images/newui/Kyokan_teal_grey.png)
     kyokan.io
@@ -155,67 +165,6 @@ function root(){
     # Send Token
     ### ![](./images/newui/send-token-custom-1-to-frankie.gif)
     `),
-
-    //
-    // kumavis
-    //
-
-    markdownSlide(`
-    # New RPC methods
-    `),
-
-    markdownSlide(`
-      \`debug_traceTransaction\`
-
-![](./images/screenos/trace.png)
-    `),
-
-    /*
-     * eth_signTypedData
-     */
-    markdownSlide(`
-      Our first "new" method:
-
-      \`eth_signTypedData\`
-
-      - EIP 712 (Thanks Leonid Logvinov + Sergey Ukustov!)
-      - Human readable
-      - Structured data
-      - Cheap to validate on-chain
-      - Enables state channels
-    `),
-
-    markdownSlide([`\`eth_signTypedData\``,
-      code(`
-
-        const msgParams = [
-          {
-            type: 'string',      // Any valid solidity type
-            name: 'Message',     // Any string label you want
-            value: 'Hi, Alice!'  // The value to sign
-         },
-         {
-           type: 'uint32',
-              name: 'A number',
-              value: '1337'
-          }
-        ]
-
-        web3.currentProvider.sendAsync({ //
-          method: 'eth_signTypedData',
-          params: [msgParams, web3.eth.accounts[0]],
-          from: from,
-        }, callback)
-      `),
-    ]),
-
-    markdownSlide([`\`eth_signTypedData\`
-
-![](./images/screenos/signTypedData.png)
-      `,
-    ]),
-
-
 
     //
     // frankie
@@ -343,8 +292,69 @@ function root(){
     //
 
     markdownSlide(`
-    # future
-    ### whats on the roadmap
+    # Evolution
+    `),
+
+    markdownSlide(`
+      \`debug_traceTransaction\`
+
+![](./images/screenos/trace.png)
+    `),
+
+    /*
+     * eth_signTypedData
+     */
+    markdownSlide(`
+      Our first "new" method:
+
+      \`eth_signTypedData\`
+
+      - EIP 712 (Thanks Leonid Logvinov + Sergey Ukustov!)
+      - Human readable
+      - Structured data
+      - Cheap to validate on-chain
+      - Enables state channels
+    `),
+
+    markdownSlide([`\`eth_signTypedData\``,
+      code(`
+
+        const msgParams = [
+          {
+            type: 'string',      // Any valid solidity type
+            name: 'Message',     // Any string label you want
+            value: 'Hi, Alice!'  // The value to sign
+         },
+         {
+           type: 'uint32',
+              name: 'A number',
+              value: '1337'
+          }
+        ]
+
+        web3.currentProvider.sendAsync({ //
+          method: 'eth_signTypedData',
+          params: [msgParams, web3.eth.accounts[0]],
+          from: from,
+        }, callback)
+      `),
+    ]),
+
+    markdownSlide([`\`eth_signTypedData\`
+
+![](./images/screenos/signTypedData.png)
+      `,
+    ]),
+
+    markdownSlide(`
+    # internal organs
+    ### key management
+    `),
+
+    markdownSlide(`
+    ### KeyringController
+    and
+    ### HdKeyring
     `),
 
     markdownSlide(`
@@ -356,18 +366,17 @@ function root(){
     `),
 
     markdownSlide(`
-    - Modularity
-
-    Extract the Soul of MetaMask (core)
+    # internal organs
+    ### blockchain data source
     `),
 
     markdownSlide(`
     # IPFS zero + light client
     `),
 
-    markdownSlide(`
-    ![](./images/screenos/eth-ipfs.png)
-    `),
+    // markdownSlide(`
+    // ![](./images/screenos/eth-ipfs.png)
+    // `),
 
     slide([
       h('video', {
@@ -376,7 +385,6 @@ function root(){
       }),
     ]),
 
-
     slide([
       h('video', {
         src: './images/screenos/ipfs_graph.m4v',
@@ -384,24 +392,24 @@ function root(){
       }),
     ]),
 
-    markdownSlide(`
-    (( slide recycle bin: ))
-    `),
+    // markdownSlide(`
+    // (( slide recycle bin: ))
+    // `),
 
 
-    markdownSlide(`
-    Ability to submit transactions with updated gas prices.
+    // markdownSlide(`
+    // Ability to submit transactions with updated gas prices.
 
-    Support for the wealth of scaling strategies that are coming out.
+    // Support for the wealth of scaling strategies that are coming out.
 
-    `),
+    // `),
 
-    markdownSlide(`
-    Increasingly decentralized.
+    // markdownSlide(`
+    // Increasingly decentralized.
 
-    Increasingly easy to contribute to.
+    // Increasingly easy to contribute to.
 
-    `),
+    // `),
 
     markdownSlide(`
     ### **call to action: **How to work/collaborate with us****
@@ -409,24 +417,35 @@ function root(){
     `),
 
     markdownSlide(`
-    how to communicate with us?
-
+    # howl
+    ### how to collaborate with us?
     `),
 
     markdownSlide(`
     **If you're doing a token sale, how to reach out to us?**
-
     `),
 
     markdownSlide(`
-    metamask in all the things!
+    # howl
+    ### how to contribute
     `),
 
     markdownSlide(`
-    - client side services
-    push the pattern as a temporary solution to a decetralized future and the module system of the web
-    all are things as service workers?
+    Open source - your contributions are welcome
     `),
+
+    markdownSlide(`
+    starting incentives with GitToken/GitCoin
+    `),
+
+    markdownSlide(`
+    We're hiring : )
+    `),
+
+    markdownSlide(`
+    Wallet Developer: Use our modules
+    `),
+
 
   ])
 }
