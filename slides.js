@@ -392,28 +392,13 @@ function root(){
       }),
     ]),
 
-    // markdownSlide(`
-    // (( slide recycle bin: ))
-    // `),
-
-
-    // markdownSlide(`
-    // Ability to submit transactions with updated gas prices.
-
-    // Support for the wealth of scaling strategies that are coming out.
-
-    // `),
-
-    // markdownSlide(`
-    // Increasingly decentralized.
-
-    // Increasingly easy to contribute to.
-
-    // `),
 
     markdownSlide(`
-    ### **call to action: **How to work/collaborate with us****
+    we're spinning up a project called 
+    
+    M U S T E K A L A
 
+    to help bridge ethereum & ipfs
     `),
 
     markdownSlide(`
