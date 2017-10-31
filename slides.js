@@ -130,18 +130,35 @@ function root(){
 
     markdownSlide(`
     # New UI
-    ### with kyo-dan
+    ###### with kyo-dan
+    ## ![](./images/newui/Kyokan_teal_grey.png)
+    kyokan.io
     `),
 
     markdownSlide(`
-    (kyo-dans slides here)
+    - New UI!
+    - Add Token
+    - Send Token
     `),
 
+    markdownSlide(`
+    # New UI!
+    ### ![](./images/newui/supplementary-screens.gif)
+    `),
+
+    markdownSlide(`
+    # Add Token
+    ### ![](./images/newui/add-custom-token-cropped.gif)
+    `),
+
+    markdownSlide(`
+    # Send Token
+    ### ![](./images/newui/send-token-custom-1-to-frankie.gif)
+    `),
 
     //
     // kumavis
     //
-
 
     markdownSlide(`
     # New RPC methods
