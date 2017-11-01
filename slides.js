@@ -21,6 +21,15 @@ function root(){
 
     slide([
       h('h1', `M E T A M A S K`),
+      h('img', {
+        src: './images/disected-fox.png',
+        style: {
+          background: 'transparent',
+          border: 'none',
+          width: '600px',
+          height: '400px',
+        }
+      }),
       h('h3', `( dissecting the fox )`),
     ]),
 
@@ -224,12 +233,6 @@ function root(){
     ]),
 
     markdownSlide(`
-    MetaMascara(mascara) selects the environmental web3 provider for you.
-
-    `),
-
-
-    markdownSlide(`
     MetaMascara(mascara) brings metamask when metamask is not installed.
 
     `),
@@ -398,8 +401,8 @@ function root(){
 
 
     markdownSlide(`
-    we're spinning up a project called 
-    
+    we're spinning up a project called
+
     M U S T E K A L A
 
     to help bridge ethereum & ipfs
@@ -435,6 +438,9 @@ function root(){
     Wallet Developer: Use our modules
     `),
 
+    markdownSlide(`
+      # shout-outs!
+    `)
 
   ])
 }
