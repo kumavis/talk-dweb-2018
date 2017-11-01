@@ -49,7 +49,7 @@ function root(){
     markdownSlide(`
     ![](./images/charts/user_count.png)
 
-    180k users and climbing!
+    180k+ users and climbing!
     `),
 
     markdownSlide(`
