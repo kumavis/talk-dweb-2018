@@ -153,17 +153,22 @@ function root(){
 
     markdownSlide(`
     # New UI
-    ### ![](./images/newui/supplementary-screens.gif)
+    ### ![generalScreens](./images/newui/supplementary-screens.gif)
     `),
 
     markdownSlide(`
     # Add Token
-    ### ![](./images/newui/add-custom-token-cropped.gif)
+    ### ![addToken](./images/newui/add-custom-token-cropped.gif)
     `),
 
     markdownSlide(`
     # Send Token
-    ### ![](./images/newui/send-token-custom-1-to-frankie.gif)
+    ### ![sendToken](./images/newui/send-token-custom-1-to-frankie.gif)
+    `),
+
+    markdownSlide(`
+    ##### Mobile + Desktop Form Factors
+    ### ![sendToken](./images/newui/MultipleFormFactors.png)
     `),
 
     //
@@ -281,7 +286,6 @@ function root(){
     markdownSlide(`
     ![nomnom](images/mascara/mascara-first-time-11.png)
     `),
-
 
     markdownSlide(`
       ### Mascara is in DEVElOPER ALPHA
