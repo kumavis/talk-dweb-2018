@@ -138,10 +138,13 @@ function root(){
 
     markdownSlide(`
     - Team grown from 4 → 10 (including contractors).
-
-    - Metamask team
-      - Including our savior James
-    - Kyokan team
+    - Metamask Team
+      - Product and Community Support: James Moreau (@jrmoreau) - Our Savior!
+      - Product Design: Christian Jeria (@cjeria)
+    - Kyokan Team
+      - Alex Tseung
+      - Dan Miller
+      - Chi Kei Chan
     `),
 
     //
