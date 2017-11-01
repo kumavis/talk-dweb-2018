@@ -15,14 +15,13 @@ function root(){
     // METAMASK TODAY
     //
 
-
     slide([
       h('#logo-container'),
     ]),
 
     slide([
       h('h1', `M E T A M A S K`),
-      h('h3', `( disecting the fox )`),
+      h('h3', `( dissecting the fox )`),
     ]),
 
     markdownSlide(`
