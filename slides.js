@@ -76,6 +76,11 @@ function root(){
     Dapps by rpc requests
     `),
 
+    markdownSlide(`
+    Successful Security Audit
+    ![](./images/misc/cure53-conclusions.png)
+    `),
+
     // markdownSlide(`
     // # crypto_kitties
 
