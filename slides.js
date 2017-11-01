@@ -125,9 +125,9 @@ function root(){
     markdownSlide(`
     - Team grown from 4 → 10 (including contractors).
 
-    - metamask team
-      - including our savior james
-    - kyokan team
+    - Metamask team
+      - Including our savior James
+    - Kyokan team
     `),
 
     //
@@ -140,19 +140,19 @@ function root(){
     `),
 
     markdownSlide(`
-    ###### with kyo-dan
+    ###### with Dan Tsui
     ## ![](./images/newui/Kyokan_teal_grey.png)
     kyokan.io
     `),
 
     markdownSlide(`
-    - New UI!
+    - New UI
     - Add Token
     - Send Token
     `),
 
     markdownSlide(`
-    # New UI!
+    # New UI
     ### ![](./images/newui/supplementary-screens.gif)
     `),
 
