@@ -440,7 +440,72 @@ function root(){
 
     markdownSlide(`
       # shout-outs!
-    `)
+    `),
+
+    slide([
+      // h('img', {
+      //   src: './images/misc/ssb-icon.png',
+      //   style: {
+      //     background: 'none',
+      //     position: 'absolute',
+      //     top: '0',
+      //     left: '0',
+      //     border: 'none',
+      //   }
+      // }),
+      h('h2', {
+        style: {
+          color: '#42f4eb',
+        }
+      }, 'PATCHWORK(&&SSB)'),
+
+      h('.warpidy-wrap-wrap', {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '60vw',
+        }
+      }, [
+        h('img', {
+          src: './images/misc/patchwork.png',
+          style: {
+            width: '65%',
+            height: '550px',
+          }
+        }),
+      ])
+    ]),
+
+    slide([
+      // h('img', {
+      //   src: './images/misc/ssb-icon.png',
+      //   style: {
+      //     background: 'transparent',
+      //   }
+      // }),
+      h('h2', {
+        style: {
+          color: '#42f4eb',
+        }
+      }, 'beaker'),
+
+      h('.warpidy-wrap-wrap', {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '60vw',
+        }
+      }, [
+        h('img', {
+          src: './images/misc/beaker.png',
+          style: {
+            width: '100%'
+          }
+        }),
+      ])
+    ]),
 
   ])
 }
