@@ -15,14 +15,13 @@ function root(){
     // METAMASK TODAY
     //
 
-
     slide([
       h('#logo-container'),
     ]),
 
     slide([
       h('h1', `M E T A M A S K`),
-      h('h3', `( disecting the fox )`),
+      h('h3', `( dissecting the fox )`),
     ]),
 
     markdownSlide(`
@@ -126,9 +125,9 @@ function root(){
     markdownSlide(`
     - Team grown from 4 → 10 (including contractors).
 
-    - metamask team
-      - including our savior james
-    - kyokan team
+    - Metamask team
+      - Including our savior James
+    - Kyokan team
     `),
 
     //
@@ -141,30 +140,35 @@ function root(){
     `),
 
     markdownSlide(`
-    ###### with kyo-dan
+    ###### with Dan Tsui
     ## ![](./images/newui/Kyokan_teal_grey.png)
     kyokan.io
     `),
 
     markdownSlide(`
-    - New UI!
+    - New UI
     - Add Token
     - Send Token
     `),
 
     markdownSlide(`
-    # New UI!
-    ### ![](./images/newui/supplementary-screens.gif)
+    # New UI
+    ### ![generalScreens](./images/newui/supplementary-screens.gif)
     `),
 
     markdownSlide(`
     # Add Token
-    ### ![](./images/newui/add-custom-token-cropped.gif)
+    ### ![addToken](./images/newui/add-custom-token-cropped.gif)
     `),
 
     markdownSlide(`
     # Send Token
-    ### ![](./images/newui/send-token-custom-1-to-frankie.gif)
+    ### ![sendToken](./images/newui/send-token-custom-1-to-frankie.gif)
+    `),
+
+    markdownSlide(`
+    ##### Mobile + Desktop Form Factors
+    ### ![sendToken](./images/newui/MultipleFormFactors.png)
     `),
 
     //
@@ -282,7 +286,6 @@ function root(){
     markdownSlide(`
     ![nomnom](images/mascara/mascara-first-time-11.png)
     `),
-
 
     markdownSlide(`
       ### Mascara is in DEVElOPER ALPHA
