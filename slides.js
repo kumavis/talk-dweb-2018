@@ -22,7 +22,7 @@ function root(){
     slide([
       h('h1', `M E T A M A S K`),
       h('img', {
-        src: './images/disected-fox.png',
+        src: './images/misc/disected-fox.png',
         style: {
           background: 'transparent',
           border: 'none',
