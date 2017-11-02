@@ -65,9 +65,19 @@ function root(){
     `),
 
     markdownSlide(`
-    - So many cool Ðapps!
+    ![](./images/charts/percent_metamask.png)
+    `),
 
-    ![](./images/charts/dapps.png)
+    markdownSlide(`
+    ![](./images/charts/network_metamask_txs.png)
+    `),
+
+    markdownSlide(`
+    ![](./images/charts/usd_throughput.png)
+    `),
+
+    markdownSlide(`
+    ![](./images/screenos/sotd.png)
     `),
 
     markdownSlide(`
@@ -367,9 +377,13 @@ function root(){
     `),
 
     markdownSlide(`
-    ### KeyringController
+    ### Keyring-Controller
     and
-    ### HdKeyring
+    ### Hd-Keyring
+    `),
+
+    markdownSlide(`
+    Wallet Developers: Use our modules
     `),
 
     markdownSlide(`
@@ -413,6 +427,8 @@ function root(){
 
     M U S T E K A L A
 
+    ![](./images/misc/mustekala.jpg)
+
     to help bridge ethereum & ipfs
     `),
 
@@ -433,17 +449,19 @@ function root(){
     markdownSlide(`
     Open source - your contributions are welcome
     `),
-
+    
     markdownSlide(`
-    starting incentives with GitToken/GitCoin
+    GitCoin
+    ![](./images/screenos/gitcoin.png)
+    `),
+    
+    markdownSlide(`
+    GitToken
+    ![](./images/screenos/gittoken.png)
     `),
 
     markdownSlide(`
     We're hiring : )
-    `),
-
-    markdownSlide(`
-    Wallet Developer: Use our modules
     `),
 
     markdownSlide(`
