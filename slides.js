@@ -148,12 +148,12 @@ function root(){
 
     markdownSlide(`
     Team grown from 4 → 10
-    
+
     - Metamask Team
       - Design: Christian Jeria
       - Testing: Thomas Huang
       - Support: James Moreau
-    
+
     - Kyokan Team
       - Alex Tseung
       - Dan Miller
@@ -278,46 +278,15 @@ function root(){
     // key management for every dapp the user visits.
     // `),
 
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-00.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-01.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-02.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-03.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-04.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-05.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-07.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-06.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-08.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-09.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-10.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-11.png)
-    `),
-
-    markdownSlide(`
-    ### How does it work:
-    `),
+        slide([
+      h('video', {
+        // style: {
+        //   position: 'absolute',
+        // },
+        src: './mascara-first.mov',
+        controls: true,
+      }),
+    ]),
 
     markdownSlide(`
     ![nomnom](images/mascara/mascara-nom.png)
@@ -384,7 +353,7 @@ function root(){
 
     markdownSlide(`
       \`eth_signTypedData\`
-      
+
       ![](./images/screenos/signTypedData.png)
     `),
 
@@ -468,12 +437,12 @@ function root(){
     markdownSlide(`
     Open source - your contributions are welcome
     `),
-    
+
     markdownSlide(`
     GitCoin
     ![](./images/screenos/gitcoin.png)
     `),
-    
+
     markdownSlide(`
     GitToken
     ![](./images/screenos/gittoken.png)
