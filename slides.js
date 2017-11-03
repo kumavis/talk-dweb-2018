@@ -174,8 +174,8 @@ function root(){
 
     markdownSlide(`
     - New UI
-    - Add Token
-    - Send Token
+    - Token Management
+    - Responsive Layout
     `),
 
     markdownSlide(`
@@ -233,8 +233,18 @@ function root(){
 
     markdownSlide(`
     we can do better
-
     `),
+
+    slide([
+      code(`
+      const metamask = require('metamascara')
+
+      const ethereumProvider = metamask.createDefaultProvider()
+
+      const web3 = new Web3(ethereumProvider)
+      const eth = new EthJs(ethereumProvider)
+      `),
+    ]),
 
     slide([
       code(`
@@ -243,26 +253,20 @@ function root(){
         const ethereumProvider = metamask.createDefaultProvider()
       </script>
       `),
-      code(`
-      const metamask = require('metamascara')
-
-      const ethereumProvider = metamask.createDefaultProvider()
-      `),
     ]),
 
     markdownSlide(`
-    MetaMascara(mascara) brings metamask when metamask is not installed.
-
-    `),
-
-
-    markdownSlide(`
-    ## How does it work and how to use it:
-
+    MetaMascara finds the environmental provider:
+    - Mist
+    - MetaMask
+    - Parity
     `),
 
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-nom.png)
+    MetaMascara connects to the
+    ### new MetaMask webapp
+
+    \`wallet.metamask.io\`
     `),
 
     // markdownSlide(`
@@ -309,7 +313,15 @@ function root(){
     `),
 
     markdownSlide(`
-      ### Mascara is in DEVElOPER ALPHA
+    ### How does it work and how to use it:
+    `),
+
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-nom.png)
+    `),
+
+    markdownSlide(`
+    ### Mascara is in DEVElOPER BETA
     `),
 
     //
