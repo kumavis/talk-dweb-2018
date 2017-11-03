@@ -313,7 +313,7 @@ function root(){
     `),
 
     markdownSlide(`
-    ### How does it work and how to use it:
+    ### How does it work:
     `),
 
     markdownSlide(`
@@ -480,6 +480,36 @@ function root(){
       # shout-outs!
     `),
 
+  slide([
+      // h('img', {
+      //   src: './images/misc/ssb-icon.png',
+      //   style: {
+      //     background: 'transparent',
+      //   }
+      // }),
+      // h('h2', {
+      //   style: {
+      //     color: '#42f4eb',
+      //   }
+      // }, 'beaker'),
+
+      h('.warpidy-wrap-wrap', {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '60vw',
+        }
+      }, [
+        h('img', {
+          src: './images/misc/beaker.png',
+          style: {
+            width: '100%'
+          }
+        }),
+      ])
+    ]),
+
     slide([
       // h('img', {
       //   src: './images/misc/ssb-icon.png',
@@ -495,7 +525,7 @@ function root(){
         style: {
           color: '#42f4eb',
         }
-      }, 'PATCHWORK(&&SSB)'),
+      }, 'PATCHWORK (SSB)'),
 
       h('.warpidy-wrap-wrap', {
         style: {
@@ -510,36 +540,6 @@ function root(){
           style: {
             width: '65%',
             height: '550px',
-          }
-        }),
-      ])
-    ]),
-
-    slide([
-      // h('img', {
-      //   src: './images/misc/ssb-icon.png',
-      //   style: {
-      //     background: 'transparent',
-      //   }
-      // }),
-      h('h2', {
-        style: {
-          color: '#42f4eb',
-        }
-      }, 'beaker'),
-
-      h('.warpidy-wrap-wrap', {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '60vw',
-        }
-      }, [
-        h('img', {
-          src: './images/misc/beaker.png',
-          style: {
-            width: '100%'
           }
         }),
       ])
