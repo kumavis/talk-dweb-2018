@@ -253,42 +253,16 @@ function root(){
     // key management for every dapp the user visits.
     // `),
 
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-00.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-01.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-02.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-03.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-04.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-05.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-07.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-06.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-08.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-09.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-10.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-11.png)
-    `),
+        slide([
+      h('video', {
+        // style: {
+        //   position: 'absolute',
+        // },
+        src: './mascara-first.mov',
+        controls: true,
+      }),
+    ]),
+
 
     markdownSlide(`
       ### Mascara is in DEVElOPER ALPHA
