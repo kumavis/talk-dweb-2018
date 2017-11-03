@@ -7697,7 +7697,7 @@ function root(){
     markdownSlide(`
     ![](./images/charts/user_count.png)
 
-    180k+ users and climbing!
+    190k+ users and climbing!
     `),
 
     markdownSlide(`
@@ -7795,10 +7795,13 @@ function root(){
 
 
     markdownSlide(`
-    - Team grown from 4 → 10 (including contractors).
+    Team grown from 4 → 10
+    
     - Metamask Team
-      - Product and Community Support: James Moreau (@jrmoreau) - Our Savior!
-      - Product Design: Christian Jeria (@cjeria)
+      - Design: Christian Jeria
+      - Testing: Thomas Huang
+      - Support: James Moreau
+    
     - Kyokan Team
       - Alex Tseung
       - Dan Miller
@@ -7961,7 +7964,7 @@ function root(){
     `),
 
     markdownSlide(`
-    ### How does it work and how to use it:
+    ### How does it work:
     `),
 
     markdownSlide(`
@@ -7981,9 +7984,9 @@ function root(){
     `),
 
     markdownSlide(`
-      \`debug_traceTransaction\`
+    \`debug_traceTransaction\`
 
-![](./images/screenos/trace.png)
+    ![](./images/screenos/trace.png)
     `),
 
     /*
@@ -8001,7 +8004,10 @@ function root(){
       - Enables state channels
     `),
 
-    markdownSlide([`\`eth_signTypedData\``,
+    slide([
+      h('p', [
+        h('code',`eth_signTypedData`),
+      ]),
       code(`
 
         const msgParams = [
@@ -8011,25 +8017,24 @@ function root(){
             value: 'Hi, Alice!'  // The value to sign
          },
          {
-           type: 'uint32',
-              name: 'A number',
-              value: '1337'
+            type: 'uint32',
+            name: 'A number',
+            value: '1337'
           }
         ]
 
-        web3.currentProvider.sendAsync({ //
+        web3.currentProvider.sendAsync({
           method: 'eth_signTypedData',
           params: [msgParams, web3.eth.accounts[0]],
-          from: from,
         }, callback)
       `),
     ]),
 
-    markdownSlide([`\`eth_signTypedData\`
-
-![](./images/screenos/signTypedData.png)
-      `,
-    ]),
+    markdownSlide(`
+      \`eth_signTypedData\`
+      
+      ![](./images/screenos/signTypedData.png)
+    `),
 
     markdownSlide(`
     # internal organs
@@ -8098,7 +8103,9 @@ function root(){
     `),
 
     markdownSlide(`
-    **If you're doing a token sale, how to reach out to us?**
+    If you're doing a **token sale**, reach out to us
+
+    \`hello@metamask.io\`
     `),
 
     markdownSlide(`
@@ -8128,6 +8135,36 @@ function root(){
       # shout-outs!
     `),
 
+  slide([
+      // h('img', {
+      //   src: './images/misc/ssb-icon.png',
+      //   style: {
+      //     background: 'transparent',
+      //   }
+      // }),
+      // h('h2', {
+      //   style: {
+      //     color: '#42f4eb',
+      //   }
+      // }, 'beaker'),
+
+      h('.warpidy-wrap-wrap', {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '60vw',
+        }
+      }, [
+        h('img', {
+          src: './images/misc/beaker.png',
+          style: {
+            width: '100%'
+          }
+        }),
+      ])
+    ]),
+
     slide([
       // h('img', {
       //   src: './images/misc/ssb-icon.png',
@@ -8143,7 +8180,7 @@ function root(){
         style: {
           color: '#42f4eb',
         }
-      }, 'PATCHWORK(&&SSB)'),
+      }, 'PATCHWORK (SSB)'),
 
       h('.warpidy-wrap-wrap', {
         style: {
@@ -8158,36 +8195,6 @@ function root(){
           style: {
             width: '65%',
             height: '550px',
-          }
-        }),
-      ])
-    ]),
-
-    slide([
-      // h('img', {
-      //   src: './images/misc/ssb-icon.png',
-      //   style: {
-      //     background: 'transparent',
-      //   }
-      // }),
-      h('h2', {
-        style: {
-          color: '#42f4eb',
-        }
-      }, 'beaker'),
-
-      h('.warpidy-wrap-wrap', {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '60vw',
-        }
-      }, [
-        h('img', {
-          src: './images/misc/beaker.png',
-          style: {
-            width: '100%'
           }
         }),
       ])
