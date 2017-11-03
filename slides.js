@@ -56,25 +56,25 @@ function root(){
     - Chrome
     - Firefox
     - Opera
-    - no Safari :(
+    - Brave :)
     `),
 
     markdownSlide(`
-    ### Brave browser support!
+    ### Brave browser integration!
     ![](./images/screenos/brave_screenshot.png)
     `),
 
-    markdownSlide(`
-    ![](./images/charts/percent_metamask.png)
-    `),
+    // markdownSlide(`
+    // ![](./images/charts/percent_metamask.png)
+    // `),
 
     markdownSlide(`
     ![](./images/charts/network_metamask_txs.png)
     `),
 
-    markdownSlide(`
-    ![](./images/charts/usd_throughput.png)
-    `),
+    // markdownSlide(`
+    // ![](./images/charts/usd_throughput.png)
+    // `),
 
     markdownSlide(`
     ![](./images/screenos/sotd.png)
@@ -276,40 +276,40 @@ function root(){
     // `),
 
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-00.png)
+    ![](images/mascara/mascara-first-time-00.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-01.png)
+    ![](images/mascara/mascara-first-time-01.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-02.png)
+    ![](images/mascara/mascara-first-time-02.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-03.png)
+    ![](images/mascara/mascara-first-time-03.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-04.png)
+    ![](images/mascara/mascara-first-time-04.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-05.png)
+    ![](images/mascara/mascara-first-time-05.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-07.png)
+    ![](images/mascara/mascara-first-time-07.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-06.png)
+    ![](images/mascara/mascara-first-time-06.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-08.png)
+    ![](images/mascara/mascara-first-time-08.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-09.png)
+    ![](images/mascara/mascara-first-time-09.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-10.png)
+    ![](images/mascara/mascara-first-time-10.png)
     `),
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-11.png)
+    ![](images/mascara/mascara-first-time-11.png)
     `),
 
     markdownSlide(`
