@@ -7663,23 +7663,30 @@ function root(){
     // METAMASK TODAY
     //
 
-
     slide([
       h('#logo-container'),
     ]),
 
     slide([
       h('h1', `M E T A M A S K`),
-      h('h3', `( disecting the fox )`),
+      h('img', {
+        src: './images/misc/disected-fox.png',
+        style: {
+          background: 'transparent',
+          border: 'none',
+          width: '600px',
+          height: '400px',
+        }
+      }),
+      h('h3', `( dissecting the fox )`),
     ]),
 
     markdownSlide(`
       # what is metamask
-      ### ( and who uses it? )
-      - eyes, brain
-      - skin, fur ( users )
-      - appendages ( dapp devs )
-      - internal organs ( wallet devs )
+      - eyes & brain
+      - skin & fur
+      - howl & gait
+      - internal organs
     `),
 
     markdownSlide(`
@@ -7690,23 +7697,46 @@ function root(){
     markdownSlide(`
     ![](./images/charts/user_count.png)
 
-    170k users and climbing!
+    190k+ users and climbing!
     `),
 
     markdownSlide(`
-    ### Brave browser support!
+    - Chrome
+    - Firefox
+    - Opera
+    - Brave :)
     `),
 
     markdownSlide(`
-    - So many cool Ðapps!
+    ### Brave browser integration!
+    ![](./images/screenos/brave_screenshot.png)
+    `),
 
-    ![](./images/charts/dapps.png)
+    // markdownSlide(`
+    // ![](./images/charts/percent_metamask.png)
+    // `),
+
+    markdownSlide(`
+    ![](./images/charts/network_metamask_txs.png)
+    `),
+
+    // markdownSlide(`
+    // ![](./images/charts/usd_throughput.png)
+    // `),
+
+    markdownSlide(`
+    ![](./images/screenos/sotd.png)
     `),
 
     markdownSlide(`
     ![](./images/charts/rpc_hits.png)
 
     Dapps by rpc requests
+    `),
+
+    markdownSlide(`
+    Successful Security Audit
+    ![](./images/misc/cure53-conclusions.png)
     `),
 
     // markdownSlide(`
@@ -7765,11 +7795,17 @@ function root(){
 
 
     markdownSlide(`
-    - Team grown from 4 → 10 (including contractors).
-
-    - metamask team
-      - including our savior james
-    - kyokan team
+    Team grown from 4 → 10
+    
+    - Metamask Team
+      - Design: Christian Jeria
+      - Testing: Thomas Huang
+      - Support: James Moreau
+    
+    - Kyokan Team
+      - Alex Tseung
+      - Dan Miller
+      - Chi Kei Chan
     `),
 
     //
@@ -7777,37 +7813,41 @@ function root(){
     //
 
     markdownSlide(`
+    # Fur and Skin
+    ### Look and feel
+    `),
+
+    markdownSlide(`
+    ###### with Dan Tsui
+    ## ![](./images/newui/Kyokan_teal_grey.png)
+    kyokan.io
+    `),
+
+    markdownSlide(`
+    - New UI
+    - Token Management
+    - Responsive Layout
+    `),
+
+    markdownSlide(`
     # New UI
-    ### with kyo-dan
+    ### ![generalScreens](./images/newui/supplementary-screens.gif)
     `),
 
     markdownSlide(`
-    (kyo-dans slides here)
-    `),
-
-
-    //
-    // kumavis
-    //
-
-
-    markdownSlide(`
-    # New RPC methods
+    # Add Token
+    ### ![addToken](./images/newui/add-custom-token-cropped.gif)
     `),
 
     markdownSlide(`
-      \`debug_traceTransaction\`
+    # Send Token
+    ### ![sendToken](./images/newui/send-token-custom-1-to-frankie.gif)
     `),
 
     markdownSlide(`
-      State Channel Suppport: We've added our first “first” method:
-      \`eth_signTypedData\`
+    ##### Mobile + Desktop Form Factors
+    ### ![sendToken](./images/newui/MultipleFormFactors.png)
     `),
-
-    markdownSlide(`
-      \`subs: coming soon\`
-    `),
-
 
     //
     // frankie
@@ -7844,8 +7884,18 @@ function root(){
 
     markdownSlide(`
     we can do better
-
     `),
+
+    slide([
+      code(`
+      const metamask = require('metamascara')
+
+      const ethereumProvider = metamask.createDefaultProvider()
+
+      const web3 = new Web3(ethereumProvider)
+      const eth = new EthJs(ethereumProvider)
+      `),
+    ]),
 
     slide([
       code(`
@@ -7854,28 +7904,67 @@ function root(){
         const ethereumProvider = metamask.createDefaultProvider()
       </script>
       `),
-      code(`
-      const metamask = require('metamascara')
-
-      const ethereumProvider = metamask.createDefaultProvider()
-      `),
     ]),
 
     markdownSlide(`
-    MetaMascara(mascara) selects the environmental web3 provider for you.
-
+    MetaMascara finds the environmental provider:
+    - Mist
+    - MetaMask
+    - Parity
     `),
 
-
     markdownSlide(`
-    MetaMascara(mascara) brings metamask when metamask is not installed.
+    MetaMascara connects to the
+    ### new MetaMask webapp
 
+    \`wallet.metamask.io\`
     `),
 
+    // markdownSlide(`
+    // Mascara is an iframe that acts as a proxy between your dapp and metamask core.
+    // The metamask core is the global context housed in a service worker, it does the
+    // key management for every dapp the user visits.
+    // `),
 
     markdownSlide(`
-    ## How does it work and how to use it:
+    ![](images/mascara/mascara-first-time-00.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-01.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-02.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-03.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-04.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-05.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-07.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-06.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-08.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-09.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-10.png)
+    `),
+    markdownSlide(`
+    ![](images/mascara/mascara-first-time-11.png)
+    `),
 
+    markdownSlide(`
+    ### How does it work:
     `),
 
     markdownSlide(`
@@ -7883,68 +7972,83 @@ function root(){
     `),
 
     markdownSlide(`
-    Mascara is an iframe that acts as a proxy between your dapp and metamask core.
-    The metamask core is the global context housed in a service worker, it does the
-    key management for every dapp the user visits.
+    ### Mascara is in DEVElOPER BETA
     `),
-
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-00.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-01.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-02.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-03.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-04.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-05.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-06.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-07.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-08.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-09.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-10.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-11.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-12.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-13.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-14.png)
-    `),
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-first-time-15.png)
-    `),
-
 
     //
     // kumavis
     //
 
     markdownSlide(`
-    # future
-    ### whats on the roadmap
+    # Evolution
+    `),
+
+    markdownSlide(`
+    \`debug_traceTransaction\`
+
+    ![](./images/screenos/trace.png)
+    `),
+
+    /*
+     * eth_signTypedData
+     */
+    markdownSlide(`
+      Our first "new" method:
+
+      \`eth_signTypedData\`
+
+      - EIP 712 (Thanks Leonid Logvinov + Sergey Ukustov!)
+      - Human readable
+      - Structured data
+      - Cheap to validate on-chain
+      - Enables state channels
+    `),
+
+    slide([
+      h('p', [
+        h('code',`eth_signTypedData`),
+      ]),
+      code(`
+
+        const msgParams = [
+          {
+            type: 'string',      // Any valid solidity type
+            name: 'Message',     // Any string label you want
+            value: 'Hi, Alice!'  // The value to sign
+         },
+         {
+            type: 'uint32',
+            name: 'A number',
+            value: '1337'
+          }
+        ]
+
+        web3.currentProvider.sendAsync({
+          method: 'eth_signTypedData',
+          params: [msgParams, web3.eth.accounts[0]],
+        }, callback)
+      `),
+    ]),
+
+    markdownSlide(`
+      \`eth_signTypedData\`
+      
+      ![](./images/screenos/signTypedData.png)
+    `),
+
+    markdownSlide(`
+    # internal organs
+    ### key management
+    `),
+
+    markdownSlide(`
+    ### Keyring-Controller
+    and
+    ### Hd-Keyring
+    `),
+
+    markdownSlide(`
+    Wallet Developers: Use our modules
     `),
 
     markdownSlide(`
@@ -7956,18 +8060,17 @@ function root(){
     `),
 
     markdownSlide(`
-    - Modularity
-
-    Extract the Soul of MetaMask (core)
+    # internal organs
+    ### blockchain data source
     `),
 
     markdownSlide(`
     # IPFS zero + light client
     `),
 
-    markdownSlide(`
-    ![](./images/screenos/eth-ipfs.png)
-    `),
+    // markdownSlide(`
+    // ![](./images/screenos/eth-ipfs.png)
+    // `),
 
     slide([
       h('video', {
@@ -7976,7 +8079,6 @@ function root(){
       }),
     ]),
 
-
     slide([
       h('video', {
         src: './images/screenos/ipfs_graph.m4v',
@@ -7984,49 +8086,119 @@ function root(){
       }),
     ]),
 
-    markdownSlide(`
-    (( slide recycle bin: ))
-    `),
-
 
     markdownSlide(`
-    Ability to submit transactions with updated gas prices.
+    we're spinning up a project called
 
-    Support for the wealth of scaling strategies that are coming out.
+    M U S T E K A L A
 
-    `),
+    ![](./images/misc/mustekala.jpg)
 
-    markdownSlide(`
-    Increasingly decentralized.
-
-    Increasingly easy to contribute to.
-
+    to help bridge ethereum & ipfs
     `),
 
     markdownSlide(`
-    ### **call to action: **How to work/collaborate with us****
-
+    # howl
+    ### how to collaborate with us?
     `),
 
     markdownSlide(`
-    how to communicate with us?
+    If you're doing a **token sale**, reach out to us
 
+    \`hello@metamask.io\`
     `),
 
     markdownSlide(`
-    **If you're doing a token sale, how to reach out to us?**
-
+    # howl
+    ### how to contribute
     `),
 
     markdownSlide(`
-    metamask in all the things!
+    Open source - your contributions are welcome
+    `),
+    
+    markdownSlide(`
+    GitCoin
+    ![](./images/screenos/gitcoin.png)
+    `),
+    
+    markdownSlide(`
+    GitToken
+    ![](./images/screenos/gittoken.png)
     `),
 
     markdownSlide(`
-    - client side services
-    push the pattern as a temporary solution to a decetralized future and the module system of the web
-    all are things as service workers?
+    We're hiring : )
     `),
+
+    markdownSlide(`
+      # shout-outs!
+    `),
+
+  slide([
+      // h('img', {
+      //   src: './images/misc/ssb-icon.png',
+      //   style: {
+      //     background: 'transparent',
+      //   }
+      // }),
+      // h('h2', {
+      //   style: {
+      //     color: '#42f4eb',
+      //   }
+      // }, 'beaker'),
+
+      h('.warpidy-wrap-wrap', {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '60vw',
+        }
+      }, [
+        h('img', {
+          src: './images/misc/beaker.png',
+          style: {
+            width: '100%'
+          }
+        }),
+      ])
+    ]),
+
+    slide([
+      // h('img', {
+      //   src: './images/misc/ssb-icon.png',
+      //   style: {
+      //     background: 'none',
+      //     position: 'absolute',
+      //     top: '0',
+      //     left: '0',
+      //     border: 'none',
+      //   }
+      // }),
+      h('h2', {
+        style: {
+          color: '#42f4eb',
+        }
+      }, 'PATCHWORK (SSB)'),
+
+      h('.warpidy-wrap-wrap', {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '60vw',
+        }
+      }, [
+        h('img', {
+          src: './images/misc/patchwork.png',
+          style: {
+            width: '65%',
+            height: '550px',
+          }
+        }),
+      ])
+    ]),
 
   ])
 }
@@ -8095,4 +8267,5 @@ function table(headers, rows){
     h('tbody', rows.map(row => h('tr', row.map( datum => h('td', datum) )))),
   ])
 }
+
 },{"virtual-dom/create-element":18,"virtual-dom/virtual-hyperscript":24}]},{},[1]);

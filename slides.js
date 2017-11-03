@@ -49,31 +49,46 @@ function root(){
     markdownSlide(`
     ![](./images/charts/user_count.png)
 
-    180k+ users and climbing!
+    190k+ users and climbing!
     `),
 
     markdownSlide(`
     - Chrome
     - Firefox
     - Opera
-    - no Safari :(
+    - Brave :)
     `),
 
     markdownSlide(`
-    ### Brave browser support!
+    ### Brave browser integration!
     ![](./images/screenos/brave_screenshot.png)
     `),
 
-    markdownSlide(`
-    - So many cool Ðapps!
+    // markdownSlide(`
+    // ![](./images/charts/percent_metamask.png)
+    // `),
 
-    ![](./images/charts/dapps.png)
+    markdownSlide(`
+    ![](./images/charts/network_metamask_txs.png)
+    `),
+
+    // markdownSlide(`
+    // ![](./images/charts/usd_throughput.png)
+    // `),
+
+    markdownSlide(`
+    ![](./images/screenos/sotd.png)
     `),
 
     markdownSlide(`
     ![](./images/charts/rpc_hits.png)
 
     Dapps by rpc requests
+    `),
+
+    markdownSlide(`
+    Successful Security Audit
+    ![](./images/misc/cure53-conclusions.png)
     `),
 
     // markdownSlide(`
@@ -132,11 +147,17 @@ function root(){
 
 
     markdownSlide(`
-    - Team grown from 4 → 10 (including contractors).
+    Team grown from 4 → 10
 
-    - Metamask team
-      - Including our savior James
-    - Kyokan team
+    - Metamask Team
+      - Design: Christian Jeria
+      - Testing: Thomas Huang
+      - Support: James Moreau
+
+    - Kyokan Team
+      - Alex Tseung
+      - Dan Miller
+      - Chi Kei Chan
     `),
 
     //
@@ -156,8 +177,8 @@ function root(){
 
     markdownSlide(`
     - New UI
-    - Add Token
-    - Send Token
+    - Token Management
+    - Responsive Layout
     `),
 
     markdownSlide(`
@@ -215,8 +236,18 @@ function root(){
 
     markdownSlide(`
     we can do better
-
     `),
+
+    slide([
+      code(`
+      const metamask = require('metamascara')
+
+      const ethereumProvider = metamask.createDefaultProvider()
+
+      const web3 = new Web3(ethereumProvider)
+      const eth = new EthJs(ethereumProvider)
+      `),
+    ]),
 
     slide([
       code(`
@@ -225,26 +256,20 @@ function root(){
         const ethereumProvider = metamask.createDefaultProvider()
       </script>
       `),
-      code(`
-      const metamask = require('metamascara')
-
-      const ethereumProvider = metamask.createDefaultProvider()
-      `),
     ]),
 
     markdownSlide(`
-    MetaMascara(mascara) brings metamask when metamask is not installed.
-
-    `),
-
-
-    markdownSlide(`
-    ## How does it work and how to use it:
-
+    MetaMascara finds the environmental provider:
+    - Mist
+    - MetaMask
+    - Parity
     `),
 
     markdownSlide(`
-    ![nomnom](images/mascara/mascara-nom.png)
+    MetaMascara connects to the
+    ### new MetaMask webapp
+
+    \`wallet.metamask.io\`
     `),
 
     // markdownSlide(`
@@ -263,9 +288,12 @@ function root(){
       }),
     ]),
 
+    markdownSlide(`
+    ![nomnom](images/mascara/mascara-nom.png)
+    `),
 
     markdownSlide(`
-      ### Mascara is in DEVElOPER ALPHA
+    ### Mascara is in DEVElOPER BETA
     `),
 
     //
@@ -277,9 +305,9 @@ function root(){
     `),
 
     markdownSlide(`
-      \`debug_traceTransaction\`
+    \`debug_traceTransaction\`
 
-![](./images/screenos/trace.png)
+    ![](./images/screenos/trace.png)
     `),
 
     /*
@@ -297,7 +325,10 @@ function root(){
       - Enables state channels
     `),
 
-    markdownSlide([`\`eth_signTypedData\``,
+    slide([
+      h('p', [
+        h('code',`eth_signTypedData`),
+      ]),
       code(`
 
         const msgParams = [
@@ -307,25 +338,24 @@ function root(){
             value: 'Hi, Alice!'  // The value to sign
          },
          {
-           type: 'uint32',
-              name: 'A number',
-              value: '1337'
+            type: 'uint32',
+            name: 'A number',
+            value: '1337'
           }
         ]
 
-        web3.currentProvider.sendAsync({ //
+        web3.currentProvider.sendAsync({
           method: 'eth_signTypedData',
           params: [msgParams, web3.eth.accounts[0]],
-          from: from,
         }, callback)
       `),
     ]),
 
-    markdownSlide([`\`eth_signTypedData\`
+    markdownSlide(`
+      \`eth_signTypedData\`
 
-![](./images/screenos/signTypedData.png)
-      `,
-    ]),
+      ![](./images/screenos/signTypedData.png)
+    `),
 
     markdownSlide(`
     # internal organs
@@ -333,9 +363,13 @@ function root(){
     `),
 
     markdownSlide(`
-    ### KeyringController
+    ### Keyring-Controller
     and
-    ### HdKeyring
+    ### Hd-Keyring
+    `),
+
+    markdownSlide(`
+    Wallet Developers: Use our modules
     `),
 
     markdownSlide(`
@@ -379,6 +413,8 @@ function root(){
 
     M U S T E K A L A
 
+    ![](./images/misc/mustekala.jpg)
+
     to help bridge ethereum & ipfs
     `),
 
@@ -388,7 +424,9 @@ function root(){
     `),
 
     markdownSlide(`
-    **If you're doing a token sale, how to reach out to us?**
+    If you're doing a **token sale**, reach out to us
+
+    \`hello@metamask.io\`
     `),
 
     markdownSlide(`
@@ -401,7 +439,13 @@ function root(){
     `),
 
     markdownSlide(`
-    starting incentives with GitToken/GitCoin
+    GitCoin
+    ![](./images/screenos/gitcoin.png)
+    `),
+
+    markdownSlide(`
+    GitToken
+    ![](./images/screenos/gittoken.png)
     `),
 
     markdownSlide(`
@@ -409,12 +453,38 @@ function root(){
     `),
 
     markdownSlide(`
-    Wallet Developer: Use our modules
-    `),
-
-    markdownSlide(`
       # shout-outs!
     `),
+
+  slide([
+      // h('img', {
+      //   src: './images/misc/ssb-icon.png',
+      //   style: {
+      //     background: 'transparent',
+      //   }
+      // }),
+      // h('h2', {
+      //   style: {
+      //     color: '#42f4eb',
+      //   }
+      // }, 'beaker'),
+
+      h('.warpidy-wrap-wrap', {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '60vw',
+        }
+      }, [
+        h('img', {
+          src: './images/misc/beaker.png',
+          style: {
+            width: '100%'
+          }
+        }),
+      ])
+    ]),
 
     slide([
       // h('img', {
@@ -431,7 +501,7 @@ function root(){
         style: {
           color: '#42f4eb',
         }
-      }, 'PATCHWORK(&&SSB)'),
+      }, 'PATCHWORK (SSB)'),
 
       h('.warpidy-wrap-wrap', {
         style: {
@@ -446,36 +516,6 @@ function root(){
           style: {
             width: '65%',
             height: '550px',
-          }
-        }),
-      ])
-    ]),
-
-    slide([
-      // h('img', {
-      //   src: './images/misc/ssb-icon.png',
-      //   style: {
-      //     background: 'transparent',
-      //   }
-      // }),
-      h('h2', {
-        style: {
-          color: '#42f4eb',
-        }
-      }, 'beaker'),
-
-      h('.warpidy-wrap-wrap', {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '60vw',
-        }
-      }, [
-        h('img', {
-          src: './images/misc/beaker.png',
-          style: {
-            width: '100%'
           }
         }),
       ])
