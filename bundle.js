@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const ModelViewer = require('metamask-logo')
 const Reveal = require('./js/reveal.js')
 const render = require('./slides.js')
@@ -6768,6 +6768,7 @@ module.exports = function createLogo (options_) {
   var options = options_ || {}
 
   var followCursor = !!options.followMouse
+  var followMotion = !!options.followMotion
   var slowDrift = !!options.slowDrift
   var shouldRender = true
 
@@ -6778,10 +6779,22 @@ module.exports = function createLogo (options_) {
   var width = options.width || 400
   var height = options.height || 400
   var container = createNode('svg')
+  var mouse = {
+    x: 0,
+    y: 0
+  }
+
+  var NUM_VERTS = foxJSON.positions.length
+
+  var positions = new Float32Array(3 * NUM_VERTS)
+  var transformed = new Float32Array(3 * NUM_VERTS)
+
+  var toDraw = []
 
   if (!options.pxNotRatio) {
     width = (window.innerWidth * (options.width || 0.25)) | 0
     height = ((window.innerHeight * options.height) || width) | 0
+
     if ('minWidth' in options && width < options.minWidth) {
       width = options.minWidth
       height = (options.minWidth * options.height / options.width) | 0
@@ -6791,20 +6804,6 @@ module.exports = function createLogo (options_) {
   setAttribute(container, 'width', width + 'px')
   setAttribute(container, 'height', height + 'px')
 
-  var mouse = {
-    x: 0,
-    y: 0
-  }
-  window.addEventListener('mousemove', function (ev) {
-    if (followCursor) {
-      var target = {
-        x: ev.clientX,
-        y: ev.clientY,
-      }
-      setLookAt(target)
-    }
-  })
-
   function setLookAt(target) {
     var bounds = container.getBoundingClientRect()
     mouse.x = 1.0 - 2.0 * (target.x - bounds.left) / bounds.width
@@ -6812,11 +6811,6 @@ module.exports = function createLogo (options_) {
   }
 
   document.body.appendChild(container)
-
-  var NUM_VERTS = foxJSON.positions.length
-
-  var positions = new Float32Array(3 * NUM_VERTS)
-  var transformed = new Float32Array(3 * NUM_VERTS)
 
   ;(function () {
     var pp = foxJSON.positions
@@ -6954,7 +6948,6 @@ module.exports = function createLogo (options_) {
     return b.zIndex - a.zIndex
   }
 
-  var toDraw = []
   function updateFaces () {
     var i
     var rect = container.getBoundingClientRect()
@@ -7008,6 +7001,45 @@ module.exports = function createLogo (options_) {
     }
   }
 
+  function stopAnimation() { shouldRender = false }
+  function startAnimation() { shouldRender = true }
+  function setFollowMouse (state) { followCursor = state }
+  function setFollowMotion (state) { followMotion = state }
+
+  window.addEventListener('mousemove', function (ev) {
+    if (!shouldRender) { startAnimation() }
+    if (followCursor) {
+      setLookAt({
+        x: ev.clientX,
+        y: ev.clientY,
+      })
+      renderScene()
+    }
+  })
+
+  window.addEventListener('deviceorientation', function (ev) {
+    if (!shouldRender) { startAnimation() }
+    if (followMotion) {
+      // gamma: left to right
+      const leftToRight = event.gamma,
+      // beta: front back motion
+      frontToBack = event.beta,
+      // x offset: needed to correct the intial position
+      xOffset = 200
+      // y offset: needed to correct the intial position
+      yOffset = -300
+      // acceleration
+      acceleration = 10
+
+
+      setLookAt({
+        x: xOffset + leftToRight * acceleration,
+        y: yOffset + frontToBack * acceleration,
+      })
+      renderScene()
+    }
+  })
+
   function renderScene () {
     if (!shouldRender) return
     window.requestAnimationFrame(renderScene)
@@ -7021,6 +7053,7 @@ module.exports = function createLogo (options_) {
     var matrix = computeMatrix()
     updatePositions(matrix)
     updateFaces()
+    stopAnimation()
   }
 
   renderScene()
@@ -7029,22 +7062,10 @@ module.exports = function createLogo (options_) {
     container: container,
     lookAt: setLookAt,
     setFollowMouse: setFollowMouse,
+    setFollowMotion: setFollowMotion,
     stopAnimation: stopAnimation,
     startAnimation: startAnimation,
   }
-
-  function stopAnimation() {
-    shouldRender = false
-  }
-
-  function startAnimation() {
-    shouldRender = true
-  }
-
-  function setFollowMouse (state) {
-    followCursor = state
-  }
-
 }
 
 },{"./fox.json":16,"gl-mat4/invert":7,"gl-mat4/lookAt":8,"gl-mat4/multiply":9,"gl-mat4/perspective":10,"gl-mat4/rotate":11,"gl-vec3/transformMat4":12}],18:[function(require,module,exports){
@@ -7683,21 +7704,9 @@ function root(){
 
     markdownSlide(`
       # what is metamask
-      - eyes & brain
-      - skin & fur
-      - howl & gait
-      - internal organs
-    `),
-
-    markdownSlide(`
-      # eyes, brain
-      ### what we see and know
-    `),
-
-    markdownSlide(`
-    ![](./images/charts/user_count.png)
-
-    190k+ users and climbing!
+      - key mgmt
+      - tx analysis
+      - ethereum api provider
     `),
 
     markdownSlide(`
@@ -7708,125 +7717,66 @@ function root(){
     `),
 
     markdownSlide(`
+    ![](./images/dweb/mm00.png)
+    `),
+
+    markdownSlide(`
     ### Brave browser integration!
     ![](./images/screenos/brave_screenshot.png)
     `),
 
-    // markdownSlide(`
-    // ![](./images/charts/percent_metamask.png)
-    // `),
-
     markdownSlide(`
-    ![](./images/charts/network_metamask_txs.png)
-    `),
-
-    // markdownSlide(`
-    // ![](./images/charts/usd_throughput.png)
-    // `),
-
-    markdownSlide(`
-    ![](./images/screenos/sotd.png)
+    wallet / key mgmt
     `),
 
     markdownSlide(`
-    ![](./images/charts/rpc_hits.png)
-
-    Dapps by rpc requests
+    ![](./images/dweb/mm02.png)
     `),
 
     markdownSlide(`
-    Successful Security Audit
-    ![](./images/misc/cure53-conclusions.png)
-    `),
-
-    // markdownSlide(`
-    // # crypto_kitties
-
-    // ![](./images/screenos/crypto_kitties.png)
-    // `),
-
-    // markdownSlide(`
-    // # crypto_punks
-
-    // ![](./images/screenos/crypto_punks.png)
-    // `),
-
-    // markdownSlide(`
-    // # ether_delta
-
-    // ![](./images/screenos/ether_delta.png)
-    // `),
-
-    // markdownSlide(`
-    // # etherplay
-
-    // ![](./images/screenos/etherplay.png)
-    // `),
-
-    // markdownSlide(`
-    // # ethlance
-
-    // ![](./images/screenos/ethlance.png)
-    // `),
-
-    // markdownSlide(`
-    // # gitcoin
-
-    // ![](./images/screenos/gitcoin.png)
-    // `),
-
-    // markdownSlide(`
-    // # gittoken
-
-    // ![](./images/screenos/gittoken.png)
-    // `),
-
-    // markdownSlide(`
-    // # leeroy
-
-    // ![](./images/screenos/leeroy.png)
-    // `),
-
-    // markdownSlide(`
-    // # sugoi
-
-    // ![](./images/screenos/sugoi.png)
-    // `),
-
-
-    markdownSlide(`
-    Team grown from 4 → 10
-    
-    - Metamask Team
-      - Design: Christian Jeria
-      - Testing: Thomas Huang
-      - Support: James Moreau
-    
-    - Kyokan Team
-      - Alex Tseung
-      - Dan Miller
-      - Chi Kei Chan
-    `),
-
-    //
-    // Kyo dan
-    //
-
-    markdownSlide(`
-    # Fur and Skin
-    ### Look and feel
+    ![](./images/dweb/mm01.png)
     `),
 
     markdownSlide(`
-    ###### with Dan Tsui
-    ## ![](./images/newui/Kyokan_teal_grey.png)
-    kyokan.io
+    ![](./images/dweb/mm03.png)
     `),
 
     markdownSlide(`
-    - New UI
-    - Token Management
-    - Responsive Layout
+    ![](./images/dweb/mm05.png)
+    `),
+
+    markdownSlide(`
+    ![](./images/dweb/mm04.png)
+    `),
+
+    markdownSlide(`
+    # crypto_punks
+
+    ![](./images/screenos/crypto_punks.png)
+    `),
+
+    markdownSlide(`
+    # crypto_kitties
+
+    ![](./images/screenos/crypto_kitties.png)
+    `),
+
+    markdownSlide(`
+    # ether_delta
+
+    ![](./images/screenos/ether_delta.png)
+    `),
+
+    markdownSlide(`
+    # ethlance
+
+    ![](./images/screenos/ethlance.png)
+    `),
+
+    markdownSlide(`
+    # gitcoin
+
+    ![](./images/screenos/gitcoin.png)
     `),
 
     markdownSlide(`
@@ -7847,146 +7797,6 @@ function root(){
     markdownSlide(`
     ##### Mobile + Desktop Form Factors
     ### ![sendToken](./images/newui/MultipleFormFactors.png)
-    `),
-
-    //
-    // frankie
-    //
-
-    markdownSlide(`
-    # building dapps
-
-    ### with metamask
-    `),
-
-    slide([
-      code(`
-  window.addEventListener('load', function() {
-    \/\/ Checking if Web3 has been injected
-    \/\/ by the browser (Mist/MetaMask)
-    if (typeof web3 !== 'undefined') {
-      \/\/ Use Mist/MetaMask's provider
-      window.web3 = new Web3(web3.currentProvider);
-    } else {
-      console.log('No web3? You should consider trying MetaMask!')
-      \/\/ fallback - use your fallback strategy
-      \/\/ (local node / hosted node + in-dapp id mgmt / fail)
-      const provider = new Web3.providers.HttpProvider("http://localhost:8545")
-      window.web3 = new Web3(provider);
-    }
-
-    \/\/ Now you can start your app & access web3 freely:
-    startApp()
-  }
-      `),
-    ]),
-
-
-    markdownSlide(`
-    we can do better
-    `),
-
-    slide([
-      code(`
-      const metamask = require('metamascara')
-
-      const ethereumProvider = metamask.createDefaultProvider()
-
-      const web3 = new Web3(ethereumProvider)
-      const eth = new EthJs(ethereumProvider)
-      `),
-    ]),
-
-    slide([
-      code(`
-      <script src="https://wallet.metamask.io/mascara.js"></script>
-      <script>
-        const ethereumProvider = metamask.createDefaultProvider()
-      </script>
-      `),
-    ]),
-
-    markdownSlide(`
-    MetaMascara finds the environmental provider:
-    - Mist
-    - MetaMask
-    - Parity
-    `),
-
-    markdownSlide(`
-    MetaMascara connects to the
-    ### new MetaMask webapp
-
-    \`wallet.metamask.io\`
-    `),
-
-    // markdownSlide(`
-    // Mascara is an iframe that acts as a proxy between your dapp and metamask core.
-    // The metamask core is the global context housed in a service worker, it does the
-    // key management for every dapp the user visits.
-    // `),
-
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-00.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-01.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-02.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-03.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-04.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-05.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-07.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-06.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-08.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-09.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-10.png)
-    `),
-    markdownSlide(`
-    ![](images/mascara/mascara-first-time-11.png)
-    `),
-
-    markdownSlide(`
-    ### How does it work:
-    `),
-
-    markdownSlide(`
-    ![nomnom](images/mascara/mascara-nom.png)
-    `),
-
-    markdownSlide(`
-    ### Mascara is in DEVElOPER BETA
-    `),
-
-    //
-    // kumavis
-    //
-
-    markdownSlide(`
-    # Evolution
-    `),
-
-    markdownSlide(`
-    \`debug_traceTransaction\`
-
-    ![](./images/screenos/trace.png)
     `),
 
     /*
@@ -8032,7 +7842,7 @@ function root(){
 
     markdownSlide(`
       \`eth_signTypedData\`
-      
+
       ![](./images/screenos/signTypedData.png)
     `),
 
@@ -8068,16 +7878,13 @@ function root(){
     # IPFS zero + light client
     `),
 
-    // markdownSlide(`
-    // ![](./images/screenos/eth-ipfs.png)
-    // `),
+    markdownSlide(`
+    ![](./images/screenos/eth-ipfs.png)
+    `),
 
-    slide([
-      h('video', {
-        src: './images/screenos/ipfs_provider.m4v',
-        controls: true,
-      }),
-    ]),
+    markdownSlide(`
+    ![](./images/misc/mustekala.jpg)
+    `),
 
     slide([
       h('video', {
@@ -8086,84 +7893,68 @@ function root(){
       }),
     ]),
 
-
     markdownSlide(`
-    we're spinning up a project called
-
-    M U S T E K A L A
-
-    ![](./images/misc/mustekala.jpg)
-
-    to help bridge ethereum & ipfs
+      kitsunet experiment
     `),
 
-    markdownSlide(`
-    # howl
-    ### how to collaborate with us?
-    `),
-
-    markdownSlide(`
-    If you're doing a **token sale**, reach out to us
-
-    \`hello@metamask.io\`
-    `),
-
-    markdownSlide(`
-    # howl
-    ### how to contribute
-    `),
+    slide([
+      h('video', {
+        src: './images/screenos/ipfs_provider.m4v',
+        controls: true,
+      }),
+    ]),
 
     markdownSlide(`
     Open source - your contributions are welcome
     `),
-    
-    markdownSlide(`
-    GitCoin
-    ![](./images/screenos/gitcoin.png)
-    `),
-    
-    markdownSlide(`
-    GitToken
-    ![](./images/screenos/gittoken.png)
-    `),
+    //
+    // markdownSlide(`
+    // GitCoin
+    // ![](./images/screenos/gitcoin.png)
+    // `),
+    //
+    // markdownSlide(`
+    // GitToken
+    // ![](./images/screenos/gittoken.png)
+    // `),
+    //
+    // markdownSlide(`
+    // We're hiring : )
+    // `),
+    //
+    // markdownSlide(`
+    //   # shout-outs!
+    // `),
 
-    markdownSlide(`
-    We're hiring : )
-    `),
-
-    markdownSlide(`
-      # shout-outs!
-    `),
-
-  slide([
-      // h('img', {
-      //   src: './images/misc/ssb-icon.png',
-      //   style: {
-      //     background: 'transparent',
-      //   }
-      // }),
-      // h('h2', {
-      //   style: {
-      //     color: '#42f4eb',
-      //   }
-      // }, 'beaker'),
-
-      h('.warpidy-wrap-wrap', {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '60vw',
-        }
-      }, [
-        h('img', {
-          src: './images/misc/beaker.png',
-          style: {
-            width: '100%'
-          }
-        }),
-      ])
-    ]),
+  // slide([
+  //     // h('img', {
+  //     //   src: './images/misc/ssb-icon.png',
+  //     //   style: {
+  //     //     background: 'transparent',
+  //     //   }
+  //     // }),
+  //     // h('h2', {
+  //     //   style: {
+  //     //     color: '#42f4eb',
+  //     //   }
+  //     // }, 'beaker'),
+  //
+  //     h('.warpidy-wrap-wrap', {
+  //       style: {
+  //         display: 'flex',
+  //         flexDirection: 'column',
+  //         alignItems: 'center',
+  //         width: '60vw',
+  //       }
+  //     }, [
+  //       h('img', {
+  //         src: './images/misc/beaker.png',
+  //         style: {
+  //           width: '100%'
+  //         }
+  //       }),
+  //     ])
+  //   ]),
 
     slide([
       // h('img', {
