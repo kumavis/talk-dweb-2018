@@ -81,6 +81,10 @@ function root(){
     `),
 
     markdownSlide(`
+    ethereum apps
+    `),
+
+    markdownSlide(`
     # crypto_punks
 
     ![](./images/screenos/crypto_punks.png)
