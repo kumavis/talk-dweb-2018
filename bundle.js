@@ -7704,29 +7704,13 @@ function root(){
 
     markdownSlide(`
       # what is metamask
-      - key mgmt
+      - key mgmt / wallet
       - tx analysis
       - ethereum api provider
     `),
 
     markdownSlide(`
-    - Chrome
-    - Firefox
-    - Opera
-    - Brave :)
-    `),
-
-    markdownSlide(`
-    ![](./images/dweb/mm00.png)
-    `),
-
-    markdownSlide(`
-    ### Brave browser integration!
-    ![](./images/screenos/brave_screenshot.png)
-    `),
-
-    markdownSlide(`
-    wallet / key mgmt
+    key mgmt / wallet
     `),
 
     markdownSlide(`
@@ -7750,31 +7734,83 @@ function root(){
     `),
 
     markdownSlide(`
-    ethereum apps
+    tx analysis
     `),
 
     markdownSlide(`
-    # crypto_punks
+    ![](./images/ui-future/06.png)
+    `),
 
-    ![](./images/screenos/crypto_punks.png)
+    // markdownSlide(`
+    // ![](./images/ui-future/07.png)
+    // `),
+
+    markdownSlide(`
+    ![](./images/ui-future/08.png)
+    `),
+
+    markdownSlide(`
+    ![](./images/ui-future/09.png)
+    `),
+
+    markdownSlide(`
+    ![](./images/ui-future/10.png)
+    `),
+
+    // signatures
+
+
+    // markdownSlide(`
+    // ![](./images/ui-future/01.png)
+    // `),
+
+
+    // hardware
+
+
+    markdownSlide(`
+    key mgmt
+    `),
+
+    markdownSlide(`
+    ### 12 word phrase
+
+    oyster timber inner increase
+
+    fan alley biology early
+
+    maze cart lecture shiver
+    `),
+    //
+    // markdownSlide(`
+    // ![](./images/ui-future/02.png)
+    // `),
+
+    markdownSlide(`
+    ![](./images/ui-future/03.png)
+    `),
+    //
+    // markdownSlide(`
+    // ![](./images/ui-future/04.png)
+    // `),
+    //
+    // markdownSlide(`
+    // ![](./images/ui-future/05.png)
+    // `),
+    //
+
+    markdownSlide(`
+    ethereum api provider
+    `),
+
+    markdownSlide(`
+    ![](./images/dapps-new/cryptopunks.jpg)
     `),
 
     markdownSlide(`
     # crypto_kitties
 
-    ![](./images/screenos/crypto_kitties.png)
-    `),
-
-    markdownSlide(`
-    # ether_delta
-
-    ![](./images/screenos/ether_delta.png)
-    `),
-
-    markdownSlide(`
-    # ethlance
-
-    ![](./images/screenos/ethlance.png)
+    ![](./images/dapps-new/cryptokitties.jpg)
     `),
 
     markdownSlide(`
@@ -7783,107 +7819,98 @@ function root(){
     ![](./images/screenos/gitcoin.png)
     `),
 
-    markdownSlide(`
-    # New UI
-    ### ![generalScreens](./images/newui/supplementary-screens.gif)
-    `),
+    // markdownSlide(`
+    // # ethlance
+    //
+    // ![](./images/screenos/ethlance.png)
+    // `),
 
-    markdownSlide(`
-    # Add Token
-    ### ![addToken](./images/newui/add-custom-token-cropped.gif)
-    `),
+    // markdownSlide(`
+    // # ether_delta
+    //
+    // ![](./images/screenos/ether_delta.png)
+    // `),
 
-    markdownSlide(`
-    # Send Token
-    ### ![sendToken](./images/newui/send-token-custom-1-to-frankie.gif)
-    `),
+    // markdownSlide(`
+    // # New UI
+    // ### ![generalScreens](./images/newui/supplementary-screens.gif)
+    // `),
+    //
+    // markdownSlide(`
+    // # Add Token
+    // ### ![addToken](./images/newui/add-custom-token-cropped.gif)
+    // `),
+    //
+    // markdownSlide(`
+    // # Send Token
+    // ### ![sendToken](./images/newui/send-token-custom-1-to-frankie.gif)
+    // `),
 
-    markdownSlide(`
-    ##### Mobile + Desktop Form Factors
-    ### ![sendToken](./images/newui/MultipleFormFactors.png)
-    `),
+    // markdownSlide(`
+    // ##### Mobile + Desktop Form Factors
+    // ### ![sendToken](./images/newui/MultipleFormFactors.png)
+    // `),
 
     /*
      * eth_signTypedData
      */
-    markdownSlide(`
-      Our first "new" method:
-
-      \`eth_signTypedData\`
-
-      - EIP 712 (Thanks Leonid Logvinov + Sergey Ukustov!)
-      - Human readable
-      - Structured data
-      - Cheap to validate on-chain
-      - Enables state channels
-    `),
-
-    slide([
-      h('p', [
-        h('code',`eth_signTypedData`),
-      ]),
-      code(`
-
-        const msgParams = [
-          {
-            type: 'string',      // Any valid solidity type
-            name: 'Message',     // Any string label you want
-            value: 'Hi, Alice!'  // The value to sign
-         },
-         {
-            type: 'uint32',
-            name: 'A number',
-            value: '1337'
-          }
-        ]
-
-        web3.currentProvider.sendAsync({
-          method: 'eth_signTypedData',
-          params: [msgParams, web3.eth.accounts[0]],
-        }, callback)
-      `),
-    ]),
-
-    markdownSlide(`
-      \`eth_signTypedData\`
-
-      ![](./images/screenos/signTypedData.png)
-    `),
+    //
+    // slide([
+    //   h('p', [
+    //     h('code',`eth_signTypedData`),
+    //   ]),
+    //   code(`
+    //
+    //     const msgParams = [
+    //       {
+    //         type: 'string',      // Any valid solidity type
+    //         name: 'Message',     // Any string label you want
+    //         value: 'Hi, Alice!'  // The value to sign
+    //      },
+    //      {
+    //         type: 'uint32',
+    //         name: 'A number',
+    //         value: '1337'
+    //       }
+    //     ]
+    //
+    //     web3.currentProvider.sendAsync({
+    //       method: 'eth_signTypedData',
+    //       params: [msgParams, web3.eth.accounts[0]],
+    //     }, callback)
+    //   `),
+    // ]),
+    //
+    // markdownSlide(`
+    //   \`eth_signTypedData\`
+    //
+    //   ![](./images/screenos/signTypedData.png)
+    // `),
+    //
+    // markdownSlide(`
+    // coming soon:
+    // - Hardware wallet support (Trezor, Ledger)
+    // - Onchain Multisig support (Aragon, Gnosis Safe)
+    // `),
 
     markdownSlide(`
-    # internal organs
-    ### key management
+    where to get it
     `),
 
     markdownSlide(`
-    ### Keyring-Controller
-    and
-    ### Hd-Keyring
+    - Chrome
+    - Firefox
+    - Opera
+    - Brave :)
     `),
 
     markdownSlide(`
-    Wallet Developers: Use our modules
+    ![](./images/dweb/mm00.png)
     `),
 
     markdownSlide(`
-    we know you're waiting:
-
-    - Hardware wallet support
-    - Contract (proxy) account support
-    - account abstraction support
-    `),
-
-    markdownSlide(`
-    # internal organs
-    ### blockchain data source
-    `),
-
-    markdownSlide(`
-    # IPFS zero + light client
-    `),
-
-    markdownSlide(`
-    ![](./images/screenos/eth-ipfs.png)
+    ### Brave browser integration!
+    ![](./images/screenos/brave_screenshot.png)
     `),
 
     markdownSlide(`
@@ -7910,6 +7937,7 @@ function root(){
 
     markdownSlide(`
     Open source - your contributions are welcome
+    ### github.com/MetaMask
     `),
     //
     // markdownSlide(`
@@ -7960,40 +7988,41 @@ function root(){
   //     ])
   //   ]),
 
-    slide([
-      // h('img', {
-      //   src: './images/misc/ssb-icon.png',
-      //   style: {
-      //     background: 'none',
-      //     position: 'absolute',
-      //     top: '0',
-      //     left: '0',
-      //     border: 'none',
-      //   }
-      // }),
-      h('h2', {
-        style: {
-          color: '#42f4eb',
-        }
-      }, 'PATCHWORK (SSB)'),
-
-      h('.warpidy-wrap-wrap', {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '60vw',
-        }
-      }, [
-        h('img', {
-          src: './images/misc/patchwork.png',
-          style: {
-            width: '65%',
-            height: '550px',
-          }
-        }),
-      ])
-    ]),
+    // slide([
+    //   // h('img', {
+    //   //   src: './images/misc/ssb-icon.png',
+    //   //   style: {
+    //   //     background: 'none',
+    //   //     position: 'absolute',
+    //   //     top: '0',
+    //   //     left: '0',
+    //   //     border: 'none',
+    //   //   }
+    //   // }),
+    //   h('h2', {
+    //     style: {
+    //       color: '#42f4eb',
+    //     }
+    //   }, 'PATCHWORK (SSB)'),
+    //
+    //   h('.warpidy-wrap-wrap', {
+    //     style: {
+    //       display: 'flex',
+    //       flexDirection: 'column',
+    //       alignItems: 'center',
+    //       width: '60vw',
+    //     }
+    //   }, [
+    //     h('img', {
+    //       src: './images/misc/patchwork.png',
+    //       style: {
+    //         width: '65%',
+    //         height: '550px',
+    //       }
+    //     }),
+    //   ])
+    //
+    // ]),
 
   ])
 }
