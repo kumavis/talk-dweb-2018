@@ -7962,6 +7962,20 @@ function root(){
 
     slide([
       h('video', {
+        src: './images/videos/graphs.mov',
+        controls: true,
+      }),
+    ]),
+
+    slide([
+      h('video', {
+        src: './images/videos/visualizer.mov',
+        controls: true,
+      }),
+    ]),
+
+    slide([
+      h('video', {
         src: './images/screenos/ipfs_provider.m4v',
         controls: true,
       }),
