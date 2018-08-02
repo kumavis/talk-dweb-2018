@@ -81,11 +81,11 @@ function root(){
     `),
 
     markdownSlide(`
-    ![](./images/ui-future/09.png)
+    ![](./images/ui-future/10.png)
     `),
 
     markdownSlide(`
-    ![](./images/ui-future/10.png)
+    ![](./images/ui-future/09.png)
     `),
 
     // signatures
@@ -131,6 +131,14 @@ function root(){
     //
 
     markdownSlide(`
+    ![](./images/dapps-new/gnosis-safe.png)
+    `),
+
+    markdownSlide(`
+    ![](./images/dapps-new/aragon.png)
+    `),
+
+    markdownSlide(`
     ethereum api provider
     `),
 
@@ -145,9 +153,33 @@ function root(){
     `),
 
     markdownSlide(`
+    # crypko.ai
+
+    ![](./images/dapps-new/crypko-ai.png)
+    `),
+
+    markdownSlide(`
     # gitcoin
 
     ![](./images/screenos/gitcoin.png)
+    `),
+
+    markdownSlide(`
+    # aragon
+
+    ![](./images/dapps-new/aragon.png)
+    `),
+
+    markdownSlide(`
+    # augur
+
+    ![](./images/dapps-new/augur.jpg)
+    `),
+
+    markdownSlide(`
+    # radar relay
+
+    ![](./images/dapps-new/radar-relay.png)
     `),
 
     // markdownSlide(`
