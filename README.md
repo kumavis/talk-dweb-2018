@@ -1,1 +1,1 @@
-MetaMask talk for devcon3 in Cancun 2017
+MetaMask talk for dweb2 in San Francisco 2018
